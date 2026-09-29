@@ -1,0 +1,29 @@
+{
+  "version": "controller-v3",
+  "frozen_at": "2026-09-25T15:00:00Z",
+  "developed_on": ["execution-corpus-v1/train-7000-7059", "execution-corpus-v1/dev-8000-8039"],
+  "controller_v2": {
+    "version": "controller-v2",
+    "frozen_at": "2026-09-25T12:00:00Z",
+    "developed_on": ["sealed-benchmark-v1/train", "sealed-benchmark-v1/dev"],
+    "ranking_rule": "highest_positive_utility_then_action_then_target",
+    "policy": {"maximum_users_impacted": 1, "contextual_maximum_users_impacted": 3, "maximum_downtime_minutes": 30, "destructive_actions_forbidden": true, "critical_services": ["payroll"], "allow_reversible_context_override": true, "override_requires_attack_stopped": true, "override_requires_verification": true, "critical_outage_override_minimum_pre_paths": 2},
+    "evidence_value": {"acquisition_cost": 2.0, "delay_cost_per_attack_path": 4.0, "resolved_uncertainty": 0.12, "minimum_expected_value": 0.5, "material_action_margin": 20.0},
+    "replanning": {"maximum_replans": 2, "repeat_same_action": false, "escalate_on_critical_service_mismatch": true},
+    "utility_weights": {"attack_path_reduction": 35.0, "sensitive_exposure_reduction": 25.0, "residual_attack_reachability": 30.0, "disrupted_service": 12.0, "impacted_user": 3.0, "downtime_minute": 0.2, "payroll_outage": 25.0, "policy_denial": 100.0, "medium_reversibility": 5.0, "low_reversibility": 12.0, "model_uncertainty": 20.0}
+  },
+  "estimator": {
+    "confirmed_threshold": 0.8,
+    "contradicted_threshold": 0.25,
+    "minimum_residual_confidence": 0.6,
+    "signal_reliability": {"ACTION_RECEIPT": 0.55, "CONNECTIVITY_PROBE": 0.865, "SERVICE_HEALTH": 0.8633, "AUTHENTICATION_PROBE": 0.85, "ENDPOINT_TELEMETRY": 0.85, "DEPENDENCY_STATUS": 0.91, "ATTACK_PATH_INDICATOR": 0.8067},
+    "action_reliability": {"ISOLATE_HOST": 0.66, "BLOCK_SMB": 0.57, "DISABLE_ACCOUNT": 0.48}
+  },
+  "recovery": {
+    "maximum_steps": 2,
+    "retry_minimum_reliability": 0.55,
+    "request_evidence_below_confidence": 0.6,
+    "escalate_critical_below_probability": 0.35,
+    "maximum_cumulative_operational_cost": 35.0
+  }
+}

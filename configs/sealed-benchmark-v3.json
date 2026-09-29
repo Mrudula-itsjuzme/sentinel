@@ -1,0 +1,10 @@
+{
+  "version": "sealed-benchmark-v3",
+  "generator_version": "recovery-friendly-generator-v3",
+  "controller_v3_config": "configs/controller-v3.json",
+  "test_seed_start": 9000,
+  "test_count": 80,
+  "execution_seed_offset": 1200000,
+  "bootstrap_samples": 2000,
+  "bootstrap_seed": 93003
+}

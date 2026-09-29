@@ -1,0 +1,11 @@
+{
+  "version": "controller-v5",
+  "frozen_at": "2026-09-26T03:00:00Z",
+  "developed_on": ["sequence-recovery-v1/train-13000-13079", "sequence-recovery-v1/dev-14000-14059"],
+  "reference_controller_config": "configs/controller-v4.json",
+  "maximum_sequence_steps": 3,
+  "maximum_retries": 1,
+  "confirmed_application_threshold": 0.8,
+  "structural_residual_confidence_threshold": 0.64,
+  "default_policy": "attempt_then_one_retry_then_best_authorized_fallback_then_escalate"
+}

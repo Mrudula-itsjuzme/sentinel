@@ -1,0 +1,42 @@
+{
+  "version": "controller-v2",
+  "frozen_at": "2026-09-25T12:00:00Z",
+  "developed_on": ["sealed-benchmark-v1/train", "sealed-benchmark-v1/dev"],
+  "ranking_rule": "highest_positive_utility_then_action_then_target",
+  "policy": {
+    "maximum_users_impacted": 1,
+    "contextual_maximum_users_impacted": 3,
+    "maximum_downtime_minutes": 30,
+    "destructive_actions_forbidden": true,
+    "critical_services": ["payroll"],
+    "allow_reversible_context_override": true,
+    "override_requires_attack_stopped": true,
+    "override_requires_verification": true,
+    "critical_outage_override_minimum_pre_paths": 2
+  },
+  "evidence_value": {
+    "acquisition_cost": 2.0,
+    "delay_cost_per_attack_path": 4.0,
+    "resolved_uncertainty": 0.12,
+    "minimum_expected_value": 0.5,
+    "material_action_margin": 20.0
+  },
+  "replanning": {
+    "maximum_replans": 2,
+    "repeat_same_action": false,
+    "escalate_on_critical_service_mismatch": true
+  },
+  "utility_weights": {
+    "attack_path_reduction": 35.0,
+    "sensitive_exposure_reduction": 25.0,
+    "residual_attack_reachability": 30.0,
+    "disrupted_service": 12.0,
+    "impacted_user": 3.0,
+    "downtime_minute": 0.2,
+    "payroll_outage": 25.0,
+    "policy_denial": 100.0,
+    "medium_reversibility": 5.0,
+    "low_reversibility": 12.0,
+    "model_uncertainty": 20.0
+  }
+}

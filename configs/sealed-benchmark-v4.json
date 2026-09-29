@@ -1,0 +1,10 @@
+{
+  "version": "sealed-benchmark-v4",
+  "generator_version": "mixed-recovery-generator-v4",
+  "controller_v4_config": "configs/controller-v4.json",
+  "test_seed_start": 12000,
+  "test_count": 100,
+  "execution_seed_offset": 1500000,
+  "bootstrap_samples": 2000,
+  "bootstrap_seed": 94004
+}

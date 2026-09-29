@@ -1,0 +1,12 @@
+{
+  "version": "sealed-benchmark-v2",
+  "generator_version": "service-centric-generator-v2",
+  "controller_v1_config": "configs/controller-v1.json",
+  "controller_v2_config": "configs/controller-v2.json",
+  "test_seed_start": 6000,
+  "test_count": 60,
+  "execution_seed_offset": 900000,
+  "bootstrap_samples": 2000,
+  "bootstrap_seed": 92002,
+  "protocol": "Controller v2 was frozen using generator-v1 train and dev partitions before generator-v2 sealed test execution."
+}

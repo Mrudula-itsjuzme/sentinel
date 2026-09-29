@@ -1,0 +1,10 @@
+{
+  "version": "sealed-benchmark-v5",
+  "generator_version": "typed-multipath-sequence-generator-v5",
+  "controller_v5_config": "configs/controller-v5.json",
+  "test_seed_start": 15000,
+  "test_count": 120,
+  "execution_seed_offset": 1800000,
+  "bootstrap_samples": 2000,
+  "bootstrap_seed": 95005
+}
