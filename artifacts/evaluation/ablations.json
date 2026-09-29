@@ -1,0 +1,142 @@
+[
+  {
+    "scenario_id": "scenario-a-payroll-lateral",
+    "ablation": "full-sentinel",
+    "outcome": "ACT",
+    "selected_action": "DISABLE_ACCOUNT",
+    "selected_target": "alice"
+  },
+  {
+    "scenario_id": "scenario-a-payroll-lateral",
+    "ablation": "without-policy",
+    "outcome": "ACT",
+    "selected_action": "DISABLE_ACCOUNT",
+    "selected_target": "alice"
+  },
+  {
+    "scenario_id": "scenario-a-payroll-lateral",
+    "ablation": "without-uncertainty",
+    "outcome": "ACT",
+    "selected_action": "DISABLE_ACCOUNT",
+    "selected_target": "alice"
+  },
+  {
+    "scenario_id": "scenario-a-payroll-lateral",
+    "ablation": "without-business-impact",
+    "outcome": "ACT",
+    "selected_action": "ISOLATE_HOST",
+    "selected_target": "workstation_a"
+  },
+  {
+    "scenario_id": "scenario-b-critical-credential",
+    "ablation": "full-sentinel",
+    "outcome": "DEFER",
+    "selected_action": null,
+    "selected_target": null
+  },
+  {
+    "scenario_id": "scenario-b-critical-credential",
+    "ablation": "without-policy",
+    "outcome": "ACT",
+    "selected_action": "BLOCK_SMB",
+    "selected_target": "SMB"
+  },
+  {
+    "scenario_id": "scenario-b-critical-credential",
+    "ablation": "without-uncertainty",
+    "outcome": "DEFER",
+    "selected_action": null,
+    "selected_target": null
+  },
+  {
+    "scenario_id": "scenario-b-critical-credential",
+    "ablation": "without-business-impact",
+    "outcome": "DEFER",
+    "selected_action": null,
+    "selected_target": null
+  },
+  {
+    "scenario_id": "scenario-c-public-web",
+    "ablation": "full-sentinel",
+    "outcome": "ACT",
+    "selected_action": "ISOLATE_HOST",
+    "selected_target": "web_server"
+  },
+  {
+    "scenario_id": "scenario-c-public-web",
+    "ablation": "without-policy",
+    "outcome": "ACT",
+    "selected_action": "ISOLATE_HOST",
+    "selected_target": "web_server"
+  },
+  {
+    "scenario_id": "scenario-c-public-web",
+    "ablation": "without-uncertainty",
+    "outcome": "ACT",
+    "selected_action": "ISOLATE_HOST",
+    "selected_target": "web_server"
+  },
+  {
+    "scenario_id": "scenario-c-public-web",
+    "ablation": "without-business-impact",
+    "outcome": "ACT",
+    "selected_action": "ISOLATE_HOST",
+    "selected_target": "web_server"
+  },
+  {
+    "scenario_id": "scenario-d-ambiguous",
+    "ablation": "full-sentinel",
+    "outcome": "REQUEST_MORE_EVIDENCE",
+    "selected_action": null,
+    "selected_target": null
+  },
+  {
+    "scenario_id": "scenario-d-ambiguous",
+    "ablation": "without-policy",
+    "outcome": "REQUEST_MORE_EVIDENCE",
+    "selected_action": null,
+    "selected_target": null
+  },
+  {
+    "scenario_id": "scenario-d-ambiguous",
+    "ablation": "without-uncertainty",
+    "outcome": "DEFER",
+    "selected_action": null,
+    "selected_target": null
+  },
+  {
+    "scenario_id": "scenario-d-ambiguous",
+    "ablation": "without-business-impact",
+    "outcome": "REQUEST_MORE_EVIDENCE",
+    "selected_action": null,
+    "selected_target": null
+  },
+  {
+    "scenario_id": "scenario-e-two-paths",
+    "ablation": "full-sentinel",
+    "outcome": "ACT",
+    "selected_action": "DISABLE_ACCOUNT",
+    "selected_target": "alice"
+  },
+  {
+    "scenario_id": "scenario-e-two-paths",
+    "ablation": "without-policy",
+    "outcome": "ACT",
+    "selected_action": "DISABLE_ACCOUNT",
+    "selected_target": "alice"
+  },
+  {
+    "scenario_id": "scenario-e-two-paths",
+    "ablation": "without-uncertainty",
+    "outcome": "ACT",
+    "selected_action": "DISABLE_ACCOUNT",
+    "selected_target": "alice"
+  },
+  {
+    "scenario_id": "scenario-e-two-paths",
+    "ablation": "without-business-impact",
+    "outcome": "ACT",
+    "selected_action": "DISABLE_ACCOUNT",
+    "selected_target": "alice"
+  }
+]
