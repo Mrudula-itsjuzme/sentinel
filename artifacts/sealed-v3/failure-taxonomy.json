@@ -1,0 +1,24 @@
+{
+  "v2-immediate-escalation": {
+    "escalation": 40,
+    "unnecessary_escalation": 15,
+    "false_confident_success": 3,
+    "residual_risk": 14
+  },
+  "v3-state-estimation-recovery": {
+    "escalation": 35,
+    "unnecessary_escalation": 11,
+    "residual_risk": 18,
+    "false_confident_success": 2
+  },
+  "fixed-fallback": {
+    "residual_risk": 24,
+    "false_confident_success": 3,
+    "escalation": 9
+  },
+  "naive-retry": {
+    "false_confident_success": 3,
+    "escalation": 9,
+    "residual_risk": 16
+  }
+}

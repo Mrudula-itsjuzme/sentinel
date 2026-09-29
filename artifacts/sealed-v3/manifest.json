@@ -1,0 +1,10 @@
+{
+  "benchmark_version": "sealed-benchmark-v3",
+  "generator_version": "recovery-friendly-generator-v3",
+  "controller_v3_sha256": "f25e19ce3696592ff8016dc0d600807e503a07fb0eee37979e16881cba9b0361",
+  "benchmark_config_sha256": "0a856cf5d4a8a8d62c31353c25458c734c91348532c685b7296e5d7a1a3ec3c0",
+  "test_count": 80,
+  "test_seed_start": 9000,
+  "test_scenario_hash": "7d5854fb0dfa47f6a479e2dc08a05a90cc233565cef560d83930f3da46ff85c2",
+  "controller_v3_tuned_after_sealed_view": false
+}

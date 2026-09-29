@@ -1,0 +1,98 @@
+[
+  {
+    "method": "v2-immediate-escalation",
+    "n": 80,
+    "initial_mismatch_rate": 0.3875,
+    "action_state_accuracy": 0.7931,
+    "residual_state_accuracy": 0.7931,
+    "critical_state_accuracy": 0.8448,
+    "false_confident_success_rate": 0.0517,
+    "mismatch_detection_rate": 0.9355,
+    "recovery_success_rate": 0.0,
+    "escalation_rate": 0.5,
+    "unnecessary_escalation_rate": 0.1875,
+    "mean_cumulative_operational_cost": 6.55,
+    "mean_final_residual_risk": 0.175,
+    "mean_recovery_steps": 0.0,
+    "mean_mismatch_detection_delay": 0.0,
+    "final_resolution_rate": 0.3375,
+    "mean_recovery_regret": 9.8875,
+    "recovery_regret_95ci": [
+      6.3875,
+      13.6188
+    ],
+    "policy_violation_rate": 0.0
+  },
+  {
+    "method": "naive-retry",
+    "n": 80,
+    "initial_mismatch_rate": 0.3875,
+    "action_state_accuracy": 0.7931,
+    "residual_state_accuracy": 0.7931,
+    "critical_state_accuracy": 0.8448,
+    "false_confident_success_rate": 0.0517,
+    "mismatch_detection_rate": 0.9355,
+    "recovery_success_rate": 0.7586,
+    "escalation_rate": 0.1125,
+    "unnecessary_escalation_rate": 0.0,
+    "mean_cumulative_operational_cost": 10.7875,
+    "mean_final_residual_risk": 0.2,
+    "mean_recovery_steps": 0.5375,
+    "mean_mismatch_detection_delay": 0.0,
+    "final_resolution_rate": 0.575,
+    "mean_recovery_regret": 15.4125,
+    "recovery_regret_95ci": [
+      10.6375,
+      21.2375
+    ],
+    "policy_violation_rate": 0.0
+  },
+  {
+    "method": "fixed-fallback",
+    "n": 80,
+    "initial_mismatch_rate": 0.3875,
+    "action_state_accuracy": 0.7931,
+    "residual_state_accuracy": 0.7931,
+    "critical_state_accuracy": 0.8448,
+    "false_confident_success_rate": 0.0517,
+    "mismatch_detection_rate": 0.9355,
+    "recovery_success_rate": 0.4828,
+    "escalation_rate": 0.1125,
+    "unnecessary_escalation_rate": 0.0,
+    "mean_cumulative_operational_cost": 13.4125,
+    "mean_final_residual_risk": 0.475,
+    "mean_recovery_steps": 0.5375,
+    "mean_mismatch_detection_delay": 0.0,
+    "final_resolution_rate": 0.45,
+    "mean_recovery_regret": 23.9125,
+    "recovery_regret_95ci": [
+      18.0125,
+      30.275
+    ],
+    "policy_violation_rate": 0.0
+  },
+  {
+    "method": "v3-state-estimation-recovery",
+    "n": 80,
+    "initial_mismatch_rate": 0.3875,
+    "action_state_accuracy": 0.8103,
+    "residual_state_accuracy": 0.8793,
+    "critical_state_accuracy": 0.9655,
+    "false_confident_success_rate": 0.0345,
+    "mismatch_detection_rate": 0.9355,
+    "recovery_success_rate": 0.6111,
+    "escalation_rate": 0.4375,
+    "unnecessary_escalation_rate": 0.1375,
+    "mean_cumulative_operational_cost": 11.7125,
+    "mean_final_residual_risk": 0.2875,
+    "mean_recovery_steps": 0.475,
+    "mean_mismatch_detection_delay": 0.0,
+    "final_resolution_rate": 0.3875,
+    "mean_recovery_regret": 17.6562,
+    "recovery_regret_95ci": [
+      12.5062,
+      23.1375
+    ],
+    "policy_violation_rate": 0.0
+  }
+]

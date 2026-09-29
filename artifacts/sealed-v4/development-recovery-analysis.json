@@ -1,0 +1,5850 @@
+{
+  "train": {
+    "case_count": 34,
+    "failure_labels": {
+      "incorrect_state_estimate": 23,
+      "correct_estimate_wrong_recovery_action": 6,
+      "hidden_alternate_path": 22,
+      "correct_action_execution_failure": 1,
+      "policy_blocking_useful_recovery": 1,
+      "missing_candidate_action": 8,
+      "retry_would_succeed_but_switched": 4
+    },
+    "oracle_choices": {
+      "SWITCH_ACTION": 14,
+      "ESCALATE": 15,
+      "RETRY": 5
+    },
+    "component_analysis": {
+      "action_application": {
+        "correct": 27,
+        "total": 34,
+        "accuracy": 0.7941,
+        "mean_regret_when_wrong": 3.5714
+      },
+      "network_reachability": {
+        "correct": 31,
+        "total": 34,
+        "accuracy": 0.9118,
+        "mean_regret_when_wrong": 8.3333
+      },
+      "credential_validity": {
+        "correct": 30,
+        "total": 34,
+        "accuracy": 0.8824,
+        "mean_regret_when_wrong": 0.0
+      },
+      "service_health": {
+        "correct": 27,
+        "total": 34,
+        "accuracy": 0.7941,
+        "mean_regret_when_wrong": 38.6429
+      },
+      "critical_service": {
+        "correct": 32,
+        "total": 34,
+        "accuracy": 0.9412,
+        "mean_regret_when_wrong": 0.0
+      },
+      "alternate_path": {
+        "correct": 20,
+        "total": 34,
+        "accuracy": 0.5882,
+        "mean_regret_when_wrong": 38.5
+      },
+      "business_dependency": {
+        "correct": 32,
+        "total": 34,
+        "accuracy": 0.9412,
+        "mean_regret_when_wrong": 0.0
+      }
+    },
+    "targeted_observation_value": {
+      "ATTACK_PATH_INDICATOR": {
+        "available_cases": 34,
+        "useful_cases": 0,
+        "mean_net_value": -5.5882
+      },
+      "AUTHENTICATION_PROBE": {
+        "available_cases": 20,
+        "useful_cases": 1,
+        "mean_net_value": -5.0
+      },
+      "CONNECTIVITY_PROBE": {
+        "available_cases": 14,
+        "useful_cases": 0,
+        "mean_net_value": -6.4286
+      },
+      "DEPENDENCY_STATUS": {
+        "available_cases": 34,
+        "useful_cases": 0,
+        "mean_net_value": -5.0
+      },
+      "SERVICE_HEALTH": {
+        "available_cases": 34,
+        "useful_cases": 5,
+        "mean_net_value": -3.8235
+      }
+    },
+    "mean_action_selection_regret": 27.3382,
+    "mean_state_estimation_regret": 20.1618,
+    "mean_execution_regret": 27.7912,
+    "cases": [
+      {
+        "scenario_id": "recovery-train-10002",
+        "seed": 10002,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 62.0,
+        "state_estimation_regret": 62.0,
+        "execution_regret": 80.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500020-0",
+            "connect-1500020-0",
+            "path-1500020-0",
+            "service-1500020-0",
+            "dependency-1500020-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10003",
+        "seed": 10003,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": -2,
+            "net_value": -25,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -17.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 37.0,
+        "state_estimation_regret": 37.0,
+        "execution_regret": 49.4,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500030-0",
+            "connect-1500030-0",
+            "path-1500030-0",
+            "service-1500030-0",
+            "dependency-1500030-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10007",
+        "seed": 10007,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": -1,
+            "net_value": -15,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -33.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -36.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 65.0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 31.8,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500070-0",
+            "auth-1500070-0",
+            "path-1500070-0",
+            "service-1500070-0",
+            "dependency-1500070-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10011",
+        "seed": 10011,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "COMPENSATE",
+        "v3_action": "DISABLE_ACCOUNT",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": false,
+          "network_reachability": false,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "correct_action_execution_failure"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -55.0,
+            "residual": 1,
+            "critical": false,
+            "policy_allowed": false,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": 7.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 14.0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 1.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [
+            "BLOCK_SMB:SMB"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500110-0",
+            "connect-1500110-0",
+            "path-1500110-0",
+            "service-1500110-0",
+            "dependency-1500110-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10013",
+        "seed": 10013,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ACCEPT",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": false,
+          "alternate_path": true,
+          "business_dependency": false
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 7.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -28.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 4.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 1.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500130-0",
+            "auth-1500130-0",
+            "path-1500130-0",
+            "service-1500130-0",
+            "dependency-1500130-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10015",
+        "seed": 10015,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 62.0,
+        "state_estimation_regret": 62.0,
+        "execution_regret": 74.4,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.5,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 0.5,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500150-0",
+            "connect-1500150-0",
+            "path-1500150-0",
+            "service-1500150-0",
+            "dependency-1500150-0",
+            "receipt-1500150-1",
+            "connect-1500150-1",
+            "path-1500150-1",
+            "service-1500150-1",
+            "dependency-1500150-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10016",
+        "seed": 10016,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": false,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 1,
+            "net_value": 5,
+            "useful": true
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 62.0,
+        "state_estimation_regret": 62.0,
+        "execution_regret": 80.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500160-0",
+            "connect-1500160-0",
+            "path-1500160-0",
+            "service-1500160-0",
+            "dependency-1500160-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10018",
+        "seed": 10018,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": false,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -67.0,
+            "residual": 1,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -67.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": -5.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 62.0,
+        "state_estimation_regret": 62.0,
+        "execution_regret": 67.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 0.5,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination",
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500180-0",
+            "connect-1500180-0",
+            "path-1500180-0",
+            "service-1500180-0",
+            "dependency-1500180-0",
+            "receipt-1500180-1",
+            "connect-1500180-1",
+            "path-1500180-1",
+            "service-1500180-1",
+            "dependency-1500180-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10023",
+        "seed": 10023,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "COMPENSATE",
+        "v3_action": "DISABLE_ACCOUNT",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "ISOLATE_HOST",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": false,
+          "network_reachability": false,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "policy_blocking_useful_recovery"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -42.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -79.0,
+            "residual": 1,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": -17.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 25.0,
+        "state_estimation_regret": 25.0,
+        "execution_regret": 63.0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 1.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [
+            "BLOCK_SMB:SMB"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500230-0",
+            "connect-1500230-0",
+            "path-1500230-0",
+            "service-1500230-0",
+            "dependency-1500230-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10025",
+        "seed": 10025,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -70.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 5.0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 1.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.5,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [
+            "BLOCK_SMB:SMB"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500250-0",
+            "connect-1500250-0",
+            "path-1500250-0",
+            "service-1500250-0",
+            "dependency-1500250-0",
+            "receipt-1500250-1",
+            "connect-1500250-1",
+            "path-1500250-1",
+            "service-1500250-1",
+            "dependency-1500250-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10031",
+        "seed": 10031,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -33.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -33.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 65.0,
+        "state_estimation_regret": 65.0,
+        "execution_regret": 37.4,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.5,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.5,
+          "business_dependency_available_probability": 0.5,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500310-0",
+            "auth-1500310-0",
+            "path-1500310-0",
+            "service-1500310-0",
+            "dependency-1500310-0",
+            "receipt-1500310-1",
+            "auth-1500310-1",
+            "path-1500310-1",
+            "service-1500310-1",
+            "dependency-1500310-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10032",
+        "seed": 10032,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": -1,
+            "net_value": -15,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 7.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -28.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 4.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 1.0,
+          "service_healthy_probability": 0.5,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500320-0",
+            "auth-1500320-0",
+            "path-1500320-0",
+            "service-1500320-0",
+            "dependency-1500320-0",
+            "receipt-1500320-1",
+            "auth-1500320-1",
+            "path-1500320-1",
+            "service-1500320-1",
+            "dependency-1500320-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10036",
+        "seed": 10036,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": -2,
+            "net_value": -25,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": -1,
+            "net_value": -15,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -65.5,
+            "residual": 3,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 15.0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500360-0",
+            "auth-1500360-0",
+            "path-1500360-0",
+            "service-1500360-0",
+            "dependency-1500360-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10037",
+        "seed": 10037,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -33.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 65.0,
+        "state_estimation_regret": 65.0,
+        "execution_regret": 77.4,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500370-0",
+            "connect-1500370-0",
+            "path-1500370-0",
+            "service-1500370-0",
+            "dependency-1500370-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10038",
+        "seed": 10038,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "missing_candidate_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 7.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -58.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 4.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator",
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500380-0",
+            "auth-1500380-0",
+            "path-1500380-0",
+            "service-1500380-0",
+            "dependency-1500380-0",
+            "receipt-1500380-1",
+            "auth-1500380-1",
+            "path-1500380-1",
+            "service-1500380-1",
+            "dependency-1500380-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10039",
+        "seed": 10039,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -95.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 62.0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 74.4,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500390-0",
+            "connect-1500390-0",
+            "path-1500390-0",
+            "service-1500390-0",
+            "dependency-1500390-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10041",
+        "seed": 10041,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "RETRY",
+        "oracle_action": "BLOCK_SMB",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -95.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": -33.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 18.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500410-0",
+            "connect-1500410-0",
+            "path-1500410-0",
+            "service-1500410-0",
+            "dependency-1500410-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10042",
+        "seed": 10042,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "COMPENSATE",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "RETRY",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": false,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 1,
+            "net_value": 5,
+            "useful": true
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "hidden_alternate_path",
+          "retry_would_succeed_but_switched"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -0.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -70.0,
+            "residual": 2,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -40.5,
+            "residual": 1,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 69.5,
+        "state_estimation_regret": 69.5,
+        "execution_regret": 33.0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 1.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500420-0",
+            "auth-1500420-0",
+            "path-1500420-0",
+            "service-1500420-0",
+            "dependency-1500420-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10043",
+        "seed": 10043,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": false,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -40.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 5.0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 1.0,
+          "service_healthy_probability": 0.5,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500430-0",
+            "auth-1500430-0",
+            "path-1500430-0",
+            "service-1500430-0",
+            "dependency-1500430-0",
+            "receipt-1500430-1",
+            "auth-1500430-1",
+            "path-1500430-1",
+            "service-1500430-1",
+            "dependency-1500430-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10045",
+        "seed": 10045,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ACCEPT",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": false,
+          "network_reachability": true,
+          "credential_validity": false,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "missing_candidate_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -8.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -3.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 1.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500450-0",
+            "auth-1500450-0",
+            "path-1500450-0",
+            "service-1500450-0",
+            "dependency-1500450-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10049",
+        "seed": 10049,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ACCEPT",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": false,
+          "network_reachability": true,
+          "credential_validity": false,
+          "service_health": false,
+          "critical_service": false,
+          "alternate_path": true,
+          "business_dependency": false
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 1,
+            "net_value": 5,
+            "useful": true
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "missing_candidate_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 7.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -58.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -58.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 4.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 1.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500490-0",
+            "auth-1500490-0",
+            "path-1500490-0",
+            "service-1500490-0",
+            "dependency-1500490-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10056",
+        "seed": 10056,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "RETRY",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": false,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 1,
+            "net_value": 5,
+            "useful": true
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "missing_candidate_action",
+          "hidden_alternate_path",
+          "retry_would_succeed_but_switched"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -0.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -33.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -3.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 62.0,
+        "state_estimation_regret": 62.0,
+        "execution_regret": 43.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500560-0",
+            "auth-1500560-0",
+            "path-1500560-0",
+            "service-1500560-0",
+            "dependency-1500560-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10057",
+        "seed": 10057,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -40.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 5.0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 1.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500570-0",
+            "auth-1500570-0",
+            "path-1500570-0",
+            "service-1500570-0",
+            "dependency-1500570-0",
+            "receipt-1500570-1",
+            "auth-1500570-1",
+            "path-1500570-1",
+            "service-1500570-1",
+            "dependency-1500570-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10059",
+        "seed": 10059,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": false,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 1,
+            "net_value": 5,
+            "useful": true
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "missing_candidate_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -3.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 15.0,
+        "state_estimation_regret": 15.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500590-0",
+            "auth-1500590-0",
+            "path-1500590-0",
+            "service-1500590-0",
+            "dependency-1500590-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10060",
+        "seed": 10060,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "COMPENSATE",
+        "v3_action": "DISABLE_ACCOUNT",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": false,
+          "network_reachability": false,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 8.4,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 1.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [
+            "BLOCK_SMB:SMB"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500600-0",
+            "connect-1500600-0",
+            "path-1500600-0",
+            "service-1500600-0",
+            "dependency-1500600-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10062",
+        "seed": 10062,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -17.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 37.0,
+        "state_estimation_regret": 37.0,
+        "execution_regret": 55.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500620-0",
+            "connect-1500620-0",
+            "path-1500620-0",
+            "service-1500620-0",
+            "dependency-1500620-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10064",
+        "seed": 10064,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "missing_candidate_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -77.5,
+            "residual": 1,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 5.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.5,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator",
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500640-0",
+            "auth-1500640-0",
+            "path-1500640-0",
+            "service-1500640-0",
+            "dependency-1500640-0",
+            "receipt-1500640-1",
+            "auth-1500640-1",
+            "path-1500640-1",
+            "service-1500640-1",
+            "dependency-1500640-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10065",
+        "seed": 10065,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -17.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 62.0,
+        "state_estimation_regret": 62.0,
+        "execution_regret": 74.4,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500650-0",
+            "connect-1500650-0",
+            "path-1500650-0",
+            "service-1500650-0",
+            "dependency-1500650-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10067",
+        "seed": 10067,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "RETRY",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "hidden_alternate_path",
+          "retry_would_succeed_but_switched"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -37.5,
+            "residual": 1,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -40.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 29.5,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 37.5,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.5,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator",
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500670-0",
+            "auth-1500670-0",
+            "path-1500670-0",
+            "service-1500670-0",
+            "dependency-1500670-0",
+            "receipt-1500670-1",
+            "auth-1500670-1",
+            "path-1500670-1",
+            "service-1500670-1",
+            "dependency-1500670-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10068",
+        "seed": 10068,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "ISOLATE_HOST",
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": false,
+          "network_reachability": true,
+          "credential_validity": false,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 2,
+            "net_value": 15,
+            "useful": true
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -0.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -33.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": -15.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500680-0",
+            "auth-1500680-0",
+            "path-1500680-0",
+            "service-1500680-0",
+            "dependency-1500680-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10069",
+        "seed": 10069,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "COMPENSATE",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "ISOLATE_HOST",
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -0.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -3.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": -3.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 20.5,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 1.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500690-0",
+            "auth-1500690-0",
+            "path-1500690-0",
+            "service-1500690-0",
+            "dependency-1500690-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10072",
+        "seed": 10072,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -8.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -3.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 40.0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 6.8,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500720-0",
+            "auth-1500720-0",
+            "path-1500720-0",
+            "service-1500720-0",
+            "dependency-1500720-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10074",
+        "seed": 10074,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ACCEPT",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": false,
+          "network_reachability": true,
+          "credential_validity": false,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "missing_candidate_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -3.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 1.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1500740-0",
+            "auth-1500740-0",
+            "path-1500740-0",
+            "service-1500740-0",
+            "dependency-1500740-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-train-10076",
+        "seed": 10076,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "RETRY",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "missing_candidate_action",
+          "hidden_alternate_path",
+          "retry_would_succeed_but_switched"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -0.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -33.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 12.0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1500760-0",
+            "auth-1500760-0",
+            "path-1500760-0",
+            "service-1500760-0",
+            "dependency-1500760-0"
+          ]
+        }
+      }
+    ]
+  },
+  "dev": {
+    "case_count": 16,
+    "failure_labels": {
+      "correct_estimate_wrong_recovery_action": 5,
+      "missing_candidate_action": 5,
+      "hidden_alternate_path": 11,
+      "incorrect_state_estimate": 7,
+      "retry_would_succeed_but_switched": 2
+    },
+    "oracle_choices": {
+      "ESCALATE": 11,
+      "RETRY": 4,
+      "SWITCH_ACTION": 1
+    },
+    "component_analysis": {
+      "action_application": {
+        "correct": 16,
+        "total": 16,
+        "accuracy": 1.0,
+        "mean_regret_when_wrong": 0.0
+      },
+      "network_reachability": {
+        "correct": 16,
+        "total": 16,
+        "accuracy": 1.0,
+        "mean_regret_when_wrong": 0.0
+      },
+      "credential_validity": {
+        "correct": 16,
+        "total": 16,
+        "accuracy": 1.0,
+        "mean_regret_when_wrong": 0.0
+      },
+      "service_health": {
+        "correct": 14,
+        "total": 16,
+        "accuracy": 0.875,
+        "mean_regret_when_wrong": 49.5
+      },
+      "critical_service": {
+        "correct": 13,
+        "total": 16,
+        "accuracy": 0.8125,
+        "mean_regret_when_wrong": 0.0
+      },
+      "alternate_path": {
+        "correct": 13,
+        "total": 16,
+        "accuracy": 0.8125,
+        "mean_regret_when_wrong": 20.6667
+      },
+      "business_dependency": {
+        "correct": 13,
+        "total": 16,
+        "accuracy": 0.8125,
+        "mean_regret_when_wrong": 0.0
+      }
+    },
+    "targeted_observation_value": {
+      "ATTACK_PATH_INDICATOR": {
+        "available_cases": 16,
+        "useful_cases": 0,
+        "mean_net_value": -5.625
+      },
+      "AUTHENTICATION_PROBE": {
+        "available_cases": 11,
+        "useful_cases": 0,
+        "mean_net_value": -8.6364
+      },
+      "CONNECTIVITY_PROBE": {
+        "available_cases": 5,
+        "useful_cases": 0,
+        "mean_net_value": -5.0
+      },
+      "DEPENDENCY_STATUS": {
+        "available_cases": 16,
+        "useful_cases": 0,
+        "mean_net_value": -5.0
+      },
+      "SERVICE_HEALTH": {
+        "available_cases": 16,
+        "useful_cases": 2,
+        "mean_net_value": -3.75
+      }
+    },
+    "mean_action_selection_regret": 19.7188,
+    "mean_state_estimation_regret": 10.0625,
+    "mean_execution_regret": 17.4812,
+    "cases": [
+      {
+        "scenario_id": "recovery-dev-11000",
+        "seed": 11000,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "missing_candidate_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -65.5,
+            "residual": 3,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 15.0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510000-0",
+            "auth-1510000-0",
+            "path-1510000-0",
+            "service-1510000-0",
+            "dependency-1510000-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11003",
+        "seed": 11003,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "RETRY",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": false,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": -2,
+            "net_value": -25,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 1,
+            "net_value": 5,
+            "useful": true
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "missing_candidate_action",
+          "hidden_alternate_path",
+          "retry_would_succeed_but_switched"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -0.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -70.0,
+            "residual": 2,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -3.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 99.0,
+        "state_estimation_regret": 99.0,
+        "execution_regret": 68.8,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510030-0",
+            "auth-1510030-0",
+            "path-1510030-0",
+            "service-1510030-0",
+            "dependency-1510030-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11015",
+        "seed": 11015,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "missing_candidate_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -65.5,
+            "residual": 3,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -40.5,
+            "residual": 1,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 97.5,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 75.5,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510150-0",
+            "auth-1510150-0",
+            "path-1510150-0",
+            "service-1510150-0",
+            "dependency-1510150-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11022",
+        "seed": 11022,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "RETRY",
+        "oracle_action": "BLOCK_SMB",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 7.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 18.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510220-0",
+            "connect-1510220-0",
+            "path-1510220-0",
+            "service-1510220-0",
+            "dependency-1510220-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11025",
+        "seed": 11025,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "RETRY",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "hidden_alternate_path",
+          "retry_would_succeed_but_switched"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -0.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -33.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 29.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 12.0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510250-0",
+            "auth-1510250-0",
+            "path-1510250-0",
+            "service-1510250-0",
+            "dependency-1510250-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11030",
+        "seed": 11030,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 7.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -123.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": -33.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 1.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 0.5,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [
+            "BLOCK_SMB:SMB"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1510300-0",
+            "connect-1510300-0",
+            "path-1510300-0",
+            "service-1510300-0",
+            "dependency-1510300-0",
+            "receipt-1510300-1",
+            "connect-1510300-1",
+            "path-1510300-1",
+            "service-1510300-1",
+            "dependency-1510300-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11032",
+        "seed": 11032,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -70.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 5.0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 1.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [
+            "BLOCK_SMB:SMB"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1510320-0",
+            "connect-1510320-0",
+            "path-1510320-0",
+            "service-1510320-0",
+            "dependency-1510320-0",
+            "receipt-1510320-1",
+            "connect-1510320-1",
+            "path-1510320-1",
+            "service-1510320-1",
+            "dependency-1510320-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11040",
+        "seed": 11040,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": false,
+          "alternate_path": false,
+          "business_dependency": false
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -40.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 5.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.5,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.5,
+          "business_dependency_available_probability": 0.5,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510400-0",
+            "auth-1510400-0",
+            "path-1510400-0",
+            "service-1510400-0",
+            "dependency-1510400-0",
+            "receipt-1510400-1",
+            "auth-1510400-1",
+            "path-1510400-1",
+            "service-1510400-1",
+            "dependency-1510400-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11041",
+        "seed": 11041,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 17.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -3.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 4.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 15.0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510410-0",
+            "auth-1510410-0",
+            "path-1510410-0",
+            "service-1510410-0",
+            "dependency-1510410-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11043",
+        "seed": 11043,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "missing_candidate_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 7.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -58.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -58.0,
+            "residual": 2,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 4.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator",
+            "Predicted critical-service availability"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510430-0",
+            "auth-1510430-0",
+            "path-1510430-0",
+            "service-1510430-0",
+            "dependency-1510430-0",
+            "receipt-1510430-1",
+            "auth-1510430-1",
+            "path-1510430-1",
+            "service-1510430-1",
+            "dependency-1510430-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11044",
+        "seed": 11044,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 7.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -45.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -28.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": 4.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 0,
+        "estimate": {
+          "action_applied_probability": 0.5,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 0.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 0.0,
+          "confirmed_changes": [],
+          "inferred_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted critical-service availability"
+          ],
+          "assessment": "INFERRED",
+          "observation_ids": [
+            "receipt-1510440-0",
+            "auth-1510440-0",
+            "path-1510440-0",
+            "service-1510440-0",
+            "dependency-1510440-0",
+            "receipt-1510440-1",
+            "auth-1510440-1",
+            "path-1510440-1",
+            "service-1510440-1",
+            "dependency-1510440-1"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11045",
+        "seed": 11045,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "RETRY",
+        "oracle_action": "BLOCK_SMB",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": false,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 1,
+            "net_value": 5,
+            "useful": true
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": -1,
+            "net_value": -15,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 12.4,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510450-0",
+            "connect-1510450-0",
+            "path-1510450-0",
+            "service-1510450-0",
+            "dependency-1510450-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11049",
+        "seed": 11049,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": false,
+          "alternate_path": true,
+          "business_dependency": false
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -40.5,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 5.0,
+        "estimate": {
+          "action_applied_probability": 1.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 1.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [
+            "DISABLE_ACCOUNT:operator"
+          ],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [],
+          "assessment": "CONFIRMED",
+          "observation_ids": [
+            "receipt-1510490-0",
+            "auth-1510490-0",
+            "path-1510490-0",
+            "service-1510490-0",
+            "dependency-1510490-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11050",
+        "seed": 11050,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "SWITCH_ACTION",
+        "v3_action": "ISOLATE_HOST",
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": true,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": -2,
+            "net_value": -25,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "correct_estimate_wrong_recovery_action",
+          "missing_candidate_action",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": 20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 5.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -82.0,
+            "residual": 2,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": -40.5,
+            "residual": 1,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 15.0,
+        "state_estimation_regret": 0.0,
+        "execution_regret": 5.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510500-0",
+            "auth-1510500-0",
+            "path-1510500-0",
+            "service-1510500-0",
+            "dependency-1510500-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11058",
+        "seed": 11058,
+        "initial_action": "DISABLE_ACCOUNT",
+        "v3_choice": "ESCALATE",
+        "v3_action": null,
+        "oracle_choice": "ESCALATE",
+        "oracle_action": null,
+        "naive_retry_action": "DISABLE_ACCOUNT",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": false,
+          "alternate_path": true,
+          "business_dependency": false
+        },
+        "targeted_observation_values": {
+          "AUTHENTICATION_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate",
+          "hidden_alternate_path"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -5.0,
+            "residual": 0,
+            "critical": false,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": -20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "BLOCK_SMB",
+            "score": -95.0,
+            "residual": 2,
+            "critical": false,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "RETRY",
+            "action": "DISABLE_ACCOUNT",
+            "score": -8.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          }
+        ],
+        "action_selection_regret": 0,
+        "state_estimation_regret": 0,
+        "execution_regret": 5.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 0,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.5,
+          "credential_invalid_probability": 0.0,
+          "service_healthy_probability": 0.0,
+          "alternate_path_probability": 0.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of DISABLE_ACCOUNT:operator"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510580-0",
+            "auth-1510580-0",
+            "path-1510580-0",
+            "service-1510580-0",
+            "dependency-1510580-0"
+          ]
+        }
+      },
+      {
+        "scenario_id": "recovery-dev-11059",
+        "seed": 11059,
+        "initial_action": "BLOCK_SMB",
+        "v3_choice": "RETRY",
+        "v3_action": "BLOCK_SMB",
+        "oracle_choice": "SWITCH_ACTION",
+        "oracle_action": "DISABLE_ACCOUNT",
+        "naive_retry_action": "BLOCK_SMB",
+        "fixed_fallback_action": "ISOLATE_HOST",
+        "component_correct": {
+          "action_application": true,
+          "network_reachability": true,
+          "credential_validity": true,
+          "service_health": true,
+          "critical_service": true,
+          "alternate_path": false,
+          "business_dependency": true
+        },
+        "targeted_observation_values": {
+          "CONNECTIVITY_PROBE": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "SERVICE_HEALTH": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "ATTACK_PATH_INDICATOR": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          },
+          "DEPENDENCY_STATUS": {
+            "component_errors_removed": 0,
+            "net_value": -5,
+            "useful": false
+          }
+        },
+        "labels": [
+          "incorrect_state_estimate"
+        ],
+        "options": [
+          {
+            "choice": "ESCALATE",
+            "action": null,
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "ISOLATE_HOST",
+            "score": 20.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": false,
+            "execution_failed": false
+          },
+          {
+            "choice": "RETRY",
+            "action": "BLOCK_SMB",
+            "score": -30.0,
+            "residual": 1,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": true
+          },
+          {
+            "choice": "SWITCH_ACTION",
+            "action": "DISABLE_ACCOUNT",
+            "score": 32.0,
+            "residual": 0,
+            "critical": true,
+            "policy_allowed": true,
+            "execution_failed": false
+          }
+        ],
+        "action_selection_regret": 62.0,
+        "state_estimation_regret": 62.0,
+        "execution_regret": 80.0,
+        "estimate": {
+          "action_applied_probability": 0.0,
+          "estimated_residual_attack_paths": 1,
+          "residual_risk_confidence": 0.6454,
+          "critical_service_available_probability": 1.0,
+          "network_contained_probability": 0.0,
+          "credential_invalid_probability": 0.5,
+          "service_healthy_probability": 1.0,
+          "alternate_path_probability": 1.0,
+          "business_dependency_available_probability": 1.0,
+          "confirmed_changes": [],
+          "inferred_changes": [],
+          "unknown_changes": [],
+          "contradicted_predictions": [
+            "Predicted successful application of BLOCK_SMB:SMB",
+            "Predicted attack-path elimination"
+          ],
+          "assessment": "CONTRADICTED",
+          "observation_ids": [
+            "receipt-1510590-0",
+            "connect-1510590-0",
+            "path-1510590-0",
+            "service-1510590-0",
+            "dependency-1510590-0"
+          ]
+        }
+      }
+    ]
+  }
+}

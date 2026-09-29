@@ -1,0 +1,8 @@
+{
+  "correct_estimate_wrong_recovery_action": 20,
+  "hidden_alternate_path": 27,
+  "incorrect_state_estimate": 15,
+  "missing_candidate_action": 11,
+  "retry_would_succeed_but_switched": 4,
+  "correct_action_execution_failure": 1
+}

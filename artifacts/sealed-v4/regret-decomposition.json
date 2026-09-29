@@ -1,0 +1,90 @@
+{
+  "case_count": 38,
+  "failure_labels": {
+    "correct_estimate_wrong_recovery_action": 20,
+    "hidden_alternate_path": 27,
+    "incorrect_state_estimate": 15,
+    "missing_candidate_action": 11,
+    "retry_would_succeed_but_switched": 4,
+    "correct_action_execution_failure": 1
+  },
+  "oracle_choices": {
+    "ESCALATE": 26,
+    "SWITCH_ACTION": 6,
+    "RETRY": 6
+  },
+  "component_analysis": {
+    "action_application": {
+      "correct": 35,
+      "total": 38,
+      "accuracy": 0.9211,
+      "mean_regret_when_wrong": 0.0
+    },
+    "network_reachability": {
+      "correct": 37,
+      "total": 38,
+      "accuracy": 0.9737,
+      "mean_regret_when_wrong": 62.0
+    },
+    "credential_validity": {
+      "correct": 35,
+      "total": 38,
+      "accuracy": 0.9211,
+      "mean_regret_when_wrong": 0.0
+    },
+    "service_health": {
+      "correct": 33,
+      "total": 38,
+      "accuracy": 0.8684,
+      "mean_regret_when_wrong": 27.8
+    },
+    "critical_service": {
+      "correct": 37,
+      "total": 38,
+      "accuracy": 0.9737,
+      "mean_regret_when_wrong": 0.0
+    },
+    "alternate_path": {
+      "correct": 28,
+      "total": 38,
+      "accuracy": 0.7368,
+      "mean_regret_when_wrong": 27.8
+    },
+    "business_dependency": {
+      "correct": 37,
+      "total": 38,
+      "accuracy": 0.9737,
+      "mean_regret_when_wrong": 0.0
+    }
+  },
+  "targeted_observation_value": {
+    "ATTACK_PATH_INDICATOR": {
+      "available_cases": 38,
+      "useful_cases": 0,
+      "mean_net_value": -6.0526
+    },
+    "AUTHENTICATION_PROBE": {
+      "available_cases": 26,
+      "useful_cases": 1,
+      "mean_net_value": -6.5385
+    },
+    "CONNECTIVITY_PROBE": {
+      "available_cases": 12,
+      "useful_cases": 0,
+      "mean_net_value": -8.3333
+    },
+    "DEPENDENCY_STATUS": {
+      "available_cases": 38,
+      "useful_cases": 0,
+      "mean_net_value": -5.0
+    },
+    "SERVICE_HEALTH": {
+      "available_cases": 38,
+      "useful_cases": 4,
+      "mean_net_value": -3.9474
+    }
+  },
+  "mean_action_selection_regret": 33.1053,
+  "mean_state_estimation_regret": 9.3421,
+  "mean_execution_regret": 26.1
+}

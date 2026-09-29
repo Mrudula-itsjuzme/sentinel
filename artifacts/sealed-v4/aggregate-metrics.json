@@ -1,0 +1,134 @@
+[
+  {
+    "method": "v3-state-estimation-recovery",
+    "n": 100,
+    "action_state_accuracy": 0.8611,
+    "residual_state_accuracy": 0.7222,
+    "critical_state_accuracy": 0.9861,
+    "false_confident_success_rate": 0.1111,
+    "mismatch_detection_rate": 0.9474,
+    "recovery_success_rate": 0.5,
+    "escalation_rate": 0.51,
+    "unnecessary_escalation_rate": 0.19,
+    "final_resolution_rate": 0.32,
+    "mean_operational_cost": 11.48,
+    "mean_residual_risk": 0.48,
+    "mean_recovery_steps": 0.58,
+    "mean_regret": 24.48,
+    "regret_95ci": [
+      18.335,
+      30.53
+    ],
+    "policy_violation_rate": 0.0
+  },
+  {
+    "method": "retry-until-limit",
+    "n": 100,
+    "action_state_accuracy": 0.8611,
+    "residual_state_accuracy": 0.75,
+    "critical_state_accuracy": 0.8889,
+    "false_confident_success_rate": 0.0972,
+    "mismatch_detection_rate": 0.9474,
+    "recovery_success_rate": 0.8333,
+    "escalation_rate": 0.18,
+    "unnecessary_escalation_rate": 0.0,
+    "final_resolution_rate": 0.69,
+    "mean_operational_cost": 6.27,
+    "mean_residual_risk": 0.17,
+    "mean_recovery_steps": 0.26,
+    "mean_regret": 8.3,
+    "regret_95ci": [
+      5.12,
+      11.84
+    ],
+    "policy_violation_rate": 0.0
+  },
+  {
+    "method": "retry-on-partial-success",
+    "n": 100,
+    "action_state_accuracy": 0.8611,
+    "residual_state_accuracy": 0.75,
+    "critical_state_accuracy": 0.8889,
+    "false_confident_success_rate": 0.0972,
+    "mismatch_detection_rate": 0.9474,
+    "recovery_success_rate": 0.0,
+    "escalation_rate": 0.33,
+    "unnecessary_escalation_rate": 0.0,
+    "final_resolution_rate": 0.54,
+    "mean_operational_cost": 4.61,
+    "mean_residual_risk": 0.28,
+    "mean_recovery_steps": 0.0,
+    "mean_regret": 12.395,
+    "regret_95ci": [
+      8.205,
+      17.07
+    ],
+    "policy_violation_rate": 0.0
+  },
+  {
+    "method": "retry-then-fallback",
+    "n": 100,
+    "action_state_accuracy": 0.8611,
+    "residual_state_accuracy": 0.75,
+    "critical_state_accuracy": 0.8889,
+    "false_confident_success_rate": 0.0972,
+    "mismatch_detection_rate": 0.9474,
+    "recovery_success_rate": 0.9444,
+    "escalation_rate": 0.16,
+    "unnecessary_escalation_rate": 0.0,
+    "final_resolution_rate": 0.71,
+    "mean_operational_cost": 6.33,
+    "mean_residual_risk": 0.15,
+    "mean_recovery_steps": 0.26,
+    "mean_regret": 7.06,
+    "regret_95ci": [
+      4.54,
+      9.74
+    ],
+    "policy_violation_rate": 0.0
+  },
+  {
+    "method": "v4-selective-recovery",
+    "n": 100,
+    "action_state_accuracy": 0.8611,
+    "residual_state_accuracy": 0.75,
+    "critical_state_accuracy": 1.0,
+    "false_confident_success_rate": 0.0972,
+    "mismatch_detection_rate": 0.9474,
+    "recovery_success_rate": 0.2857,
+    "escalation_rate": 0.38,
+    "unnecessary_escalation_rate": 0.09,
+    "final_resolution_rate": 0.44,
+    "mean_operational_cost": 7.03,
+    "mean_residual_risk": 0.36,
+    "mean_recovery_steps": 0.29,
+    "mean_regret": 17.525,
+    "regret_95ci": [
+      12.67,
+      22.915
+    ],
+    "policy_violation_rate": 0.0
+  },
+  {
+    "method": "recovery-oracle",
+    "n": 100,
+    "action_state_accuracy": 0.8611,
+    "residual_state_accuracy": 0.75,
+    "critical_state_accuracy": 0.8889,
+    "false_confident_success_rate": 0.0972,
+    "mismatch_detection_rate": 0.9474,
+    "recovery_success_rate": 0.9167,
+    "escalation_rate": 0.22,
+    "unnecessary_escalation_rate": 0.0,
+    "final_resolution_rate": 0.65,
+    "mean_operational_cost": 6.02,
+    "mean_residual_risk": 0.17,
+    "mean_recovery_steps": 0.17,
+    "mean_regret": 7.695,
+    "regret_95ci": [
+      4.68,
+      10.92
+    ],
+    "policy_violation_rate": 0.0
+  }
+]
