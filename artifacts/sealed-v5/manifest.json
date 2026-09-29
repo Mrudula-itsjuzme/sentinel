@@ -1,0 +1,10 @@
+{
+  "benchmark_version": "sealed-benchmark-v5",
+  "generator_version": "typed-multipath-sequence-generator-v5",
+  "controller_v5_sha256": "b8c7aeed9e7d4755a8680ad2ae7d817d50628641aae7472b4bc5f96bd773895e",
+  "benchmark_config_sha256": "76741f523b29bf59ac0ce7b90d7312ebaed764da5d67be95007f5738ae8b353a",
+  "test_count": 120,
+  "test_seed_start": 15000,
+  "test_scenario_hash": "89080eb8eaf58581ce240d69fd1e18cf069dfdb42a8a10579c8013f05db45c97",
+  "controller_v5_tuned_after_sealed_view": false
+}

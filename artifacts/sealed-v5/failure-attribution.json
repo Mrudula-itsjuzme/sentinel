@@ -1,0 +1,9 @@
+{
+  "hidden_alternate_path": 75,
+  "wrong_sequence": 80,
+  "insufficient_action_horizon": 17,
+  "execution_failure": 53,
+  "unnecessary_escalation": 43,
+  "bad_state_estimate": 20,
+  "missing_action": 5
+}

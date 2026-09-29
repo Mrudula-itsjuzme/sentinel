@@ -1,0 +1,2232 @@
+[
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.2736,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.1452,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.15048,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.57,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.1452,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.172425,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.15048,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.1452,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 15.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.57,
+    "resolved": true,
+    "score": 20.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.57,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.172425,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.172425,
+    "resolved": false,
+    "score": 2.5,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "alternate_ssh"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.2736,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.15048,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.1452,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.178695,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.1452,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.15048,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.172425,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.15048,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 28.0,
+    "critical_outage": true,
+    "policy_compliant": true,
+    "execution_probability": 0.178695,
+    "resolved": false,
+    "score": 7.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.57,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.172425,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.15048,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "alternate_ssh"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 1
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.48,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 28.0,
+    "critical_outage": true,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": false,
+    "score": 7.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.57,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "alternate_ssh"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.172425,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.172425,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 28.0,
+    "critical_outage": true,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": false,
+    "score": 7.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.1452,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.15048,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 1,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": false,
+    "score": 10.3333,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.1452,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 3
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "REVOKE_SESSION",
+        "operator"
+      ],
+      [
+        "DISABLE_ACCOUNT",
+        "operator"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.264,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "RESTRICT_CONNECTION",
+        "cached_https"
+      ],
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.3135,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 2
+  },
+  {
+    "actions": [
+      [
+        "BLOCK_SMB",
+        "SMB"
+      ]
+    ],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 3.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 0.57,
+    "resolved": true,
+    "score": 32.0,
+    "steps": 1
+  },
+  {
+    "actions": [],
+    "final_residual_paths": 0,
+    "cumulative_operational_cost": 0.0,
+    "critical_outage": false,
+    "policy_compliant": true,
+    "execution_probability": 1.0,
+    "resolved": true,
+    "score": 0.0,
+    "steps": 0
+  }
+]
