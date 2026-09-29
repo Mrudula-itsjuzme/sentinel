@@ -1,0 +1,669 @@
+{
+  "counts_by_outcome": {
+    "ACT": 38,
+    "DEFER": 19,
+    "REQUEST_MORE_EVIDENCE": 3
+  },
+  "near_evidence_boundary": [
+    {
+      "scenario_id": "sealed-v2-6010",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6023",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6026",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6047",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6059",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": -0.8,
+      "would_change_decision": false
+    }
+  ],
+  "near_action_margin_boundary": [
+    {
+      "scenario_id": "sealed-v2-6007",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6010",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6011",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6017",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6018",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6022",
+      "uncertainty": 0.82,
+      "outcome": "REQUEST_MORE_EVIDENCE",
+      "action_margin": 18.1,
+      "evidence_net_value": 8.16,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6023",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6025",
+      "uncertainty": 0.82,
+      "outcome": "REQUEST_MORE_EVIDENCE",
+      "action_margin": 18.1,
+      "evidence_net_value": 8.16,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6026",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6032",
+      "uncertainty": 0.82,
+      "outcome": "REQUEST_MORE_EVIDENCE",
+      "action_margin": 18.1,
+      "evidence_net_value": 8.16,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6033",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6036",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6040",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6047",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6048",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6054",
+      "uncertainty": 0.6,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 32.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6058",
+      "uncertainty": 0.30000000000000004,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 9.8,
+      "would_change_decision": false
+    }
+  ],
+  "rows": [
+    {
+      "scenario_id": "sealed-v2-6000",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 43.4,
+      "evidence_net_value": 7.2,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6001",
+      "uncertainty": 0.2,
+      "outcome": "DEFER",
+      "action_margin": -10.6,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6002",
+      "uncertainty": 0.6,
+      "outcome": "ACT",
+      "action_margin": 41.4,
+      "evidence_net_value": 10.2,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6003",
+      "uncertainty": 0.30000000000000004,
+      "outcome": "DEFER",
+      "action_margin": -12.6,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6004",
+      "uncertainty": 0.5,
+      "outcome": "DEFER",
+      "action_margin": -16.6,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6005",
+      "uncertainty": 0.82,
+      "outcome": "ACT",
+      "action_margin": 37.0,
+      "evidence_net_value": 16.8,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6006",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 49.4,
+      "evidence_net_value": -1.8,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6007",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6008",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 43.4,
+      "evidence_net_value": 7.2,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6009",
+      "uncertainty": 0.82,
+      "outcome": "DEFER",
+      "action_margin": -23.0,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6010",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6011",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6012",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6013",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6014",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6015",
+      "uncertainty": 0.82,
+      "outcome": "DEFER",
+      "action_margin": 28.9333,
+      "evidence_net_value": 7.44,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6016",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6017",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6018",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6019",
+      "uncertainty": 0.82,
+      "outcome": "DEFER",
+      "action_margin": -23.0,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6020",
+      "uncertainty": 0.30000000000000004,
+      "outcome": "DEFER",
+      "action_margin": -12.6,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6021",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6022",
+      "uncertainty": 0.82,
+      "outcome": "REQUEST_MORE_EVIDENCE",
+      "action_margin": 18.1,
+      "evidence_net_value": 8.16,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6023",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6024",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 49.4,
+      "evidence_net_value": -1.8,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6025",
+      "uncertainty": 0.82,
+      "outcome": "REQUEST_MORE_EVIDENCE",
+      "action_margin": 18.1,
+      "evidence_net_value": 8.16,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6026",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6027",
+      "uncertainty": 0.9199999999999999,
+      "outcome": "DEFER",
+      "action_margin": 28.9333,
+      "evidence_net_value": 8.64,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6028",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6029",
+      "uncertainty": 0.9199999999999999,
+      "outcome": "ACT",
+      "action_margin": 35.0,
+      "evidence_net_value": 19.8,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6030",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 43.4,
+      "evidence_net_value": 7.2,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6031",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6032",
+      "uncertainty": 0.82,
+      "outcome": "REQUEST_MORE_EVIDENCE",
+      "action_margin": 18.1,
+      "evidence_net_value": 8.16,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6033",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6034",
+      "uncertainty": 0.5,
+      "outcome": "DEFER",
+      "action_margin": -16.6,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6035",
+      "uncertainty": 0.9199999999999999,
+      "outcome": "DEFER",
+      "action_margin": -25.0,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6036",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6037",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6038",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 43.4,
+      "evidence_net_value": 7.2,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6039",
+      "uncertainty": 0.2,
+      "outcome": "DEFER",
+      "action_margin": -10.6,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6040",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6041",
+      "uncertainty": 0.6,
+      "outcome": "ACT",
+      "action_margin": 41.4,
+      "evidence_net_value": 10.2,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6042",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6043",
+      "uncertainty": 0.30000000000000004,
+      "outcome": "DEFER",
+      "action_margin": -12.6,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6044",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6045",
+      "uncertainty": 0.82,
+      "outcome": "DEFER",
+      "action_margin": 28.9333,
+      "evidence_net_value": 7.44,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6046",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6047",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 2.4,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6048",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 24.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6049",
+      "uncertainty": 0.6,
+      "outcome": "DEFER",
+      "action_margin": -18.6,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6050",
+      "uncertainty": 0.5,
+      "outcome": "DEFER",
+      "action_margin": -16.6,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6051",
+      "uncertainty": 0.9199999999999999,
+      "outcome": "DEFER",
+      "action_margin": 28.9333,
+      "evidence_net_value": 8.64,
+      "would_change_decision": true
+    },
+    {
+      "scenario_id": "sealed-v2-6052",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": 22.6,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6053",
+      "uncertainty": 0.5,
+      "outcome": "ACT",
+      "action_margin": 43.4,
+      "evidence_net_value": 7.2,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6054",
+      "uncertainty": 0.6,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 32.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6055",
+      "uncertainty": 0.9199999999999999,
+      "outcome": "DEFER",
+      "action_margin": -25.0,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6056",
+      "uncertainty": 0.5,
+      "outcome": "DEFER",
+      "action_margin": -16.6,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6057",
+      "uncertainty": 0.82,
+      "outcome": "DEFER",
+      "action_margin": -23.0,
+      "evidence_net_value": -2.0,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6058",
+      "uncertainty": 0.30000000000000004,
+      "outcome": "ACT",
+      "action_margin": 18.1,
+      "evidence_net_value": 9.8,
+      "would_change_decision": false
+    },
+    {
+      "scenario_id": "sealed-v2-6059",
+      "uncertainty": 0.2,
+      "outcome": "ACT",
+      "action_margin": 28.9333,
+      "evidence_net_value": -0.8,
+      "would_change_decision": false
+    }
+  ]
+}

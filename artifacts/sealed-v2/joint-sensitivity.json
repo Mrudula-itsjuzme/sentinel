@@ -1,0 +1,146 @@
+[
+  {
+    "security_multiplier": 0.75,
+    "operations_multiplier": 0.75,
+    "uncertainty_multiplier": 0.75,
+    "evidence_threshold_multiplier": 0.75,
+    "decision_flip_rate": 0.0,
+    "act_rate": 0.6333,
+    "request_rate": 0.05
+  },
+  {
+    "security_multiplier": 0.75,
+    "operations_multiplier": 0.75,
+    "uncertainty_multiplier": 0.75,
+    "evidence_threshold_multiplier": 1.25,
+    "decision_flip_rate": 0.0,
+    "act_rate": 0.6333,
+    "request_rate": 0.05
+  },
+  {
+    "security_multiplier": 0.75,
+    "operations_multiplier": 0.75,
+    "uncertainty_multiplier": 1.25,
+    "evidence_threshold_multiplier": 0.75,
+    "decision_flip_rate": 0.3833,
+    "act_rate": 0.25,
+    "request_rate": 0.0833
+  },
+  {
+    "security_multiplier": 0.75,
+    "operations_multiplier": 0.75,
+    "uncertainty_multiplier": 1.25,
+    "evidence_threshold_multiplier": 1.25,
+    "decision_flip_rate": 0.3833,
+    "act_rate": 0.25,
+    "request_rate": 0.0833
+  },
+  {
+    "security_multiplier": 0.75,
+    "operations_multiplier": 1.25,
+    "uncertainty_multiplier": 0.75,
+    "evidence_threshold_multiplier": 0.75,
+    "decision_flip_rate": 0.5,
+    "act_rate": 0.1833,
+    "request_rate": 0.0
+  },
+  {
+    "security_multiplier": 0.75,
+    "operations_multiplier": 1.25,
+    "uncertainty_multiplier": 0.75,
+    "evidence_threshold_multiplier": 1.25,
+    "decision_flip_rate": 0.5,
+    "act_rate": 0.1833,
+    "request_rate": 0.0
+  },
+  {
+    "security_multiplier": 0.75,
+    "operations_multiplier": 1.25,
+    "uncertainty_multiplier": 1.25,
+    "evidence_threshold_multiplier": 0.75,
+    "decision_flip_rate": 0.5333,
+    "act_rate": 0.15,
+    "request_rate": 0.0333
+  },
+  {
+    "security_multiplier": 0.75,
+    "operations_multiplier": 1.25,
+    "uncertainty_multiplier": 1.25,
+    "evidence_threshold_multiplier": 1.25,
+    "decision_flip_rate": 0.5333,
+    "act_rate": 0.15,
+    "request_rate": 0.0333
+  },
+  {
+    "security_multiplier": 1.25,
+    "operations_multiplier": 0.75,
+    "uncertainty_multiplier": 0.75,
+    "evidence_threshold_multiplier": 0.75,
+    "decision_flip_rate": 0.1167,
+    "act_rate": 0.75,
+    "request_rate": 0.0
+  },
+  {
+    "security_multiplier": 1.25,
+    "operations_multiplier": 0.75,
+    "uncertainty_multiplier": 0.75,
+    "evidence_threshold_multiplier": 1.25,
+    "decision_flip_rate": 0.1167,
+    "act_rate": 0.75,
+    "request_rate": 0.0
+  },
+  {
+    "security_multiplier": 1.25,
+    "operations_multiplier": 0.75,
+    "uncertainty_multiplier": 1.25,
+    "evidence_threshold_multiplier": 0.75,
+    "decision_flip_rate": 0.1167,
+    "act_rate": 0.75,
+    "request_rate": 0.0
+  },
+  {
+    "security_multiplier": 1.25,
+    "operations_multiplier": 0.75,
+    "uncertainty_multiplier": 1.25,
+    "evidence_threshold_multiplier": 1.25,
+    "decision_flip_rate": 0.1167,
+    "act_rate": 0.75,
+    "request_rate": 0.0
+  },
+  {
+    "security_multiplier": 1.25,
+    "operations_multiplier": 1.25,
+    "uncertainty_multiplier": 0.75,
+    "evidence_threshold_multiplier": 0.75,
+    "decision_flip_rate": 0.1167,
+    "act_rate": 0.75,
+    "request_rate": 0.0
+  },
+  {
+    "security_multiplier": 1.25,
+    "operations_multiplier": 1.25,
+    "uncertainty_multiplier": 0.75,
+    "evidence_threshold_multiplier": 1.25,
+    "decision_flip_rate": 0.1167,
+    "act_rate": 0.75,
+    "request_rate": 0.0
+  },
+  {
+    "security_multiplier": 1.25,
+    "operations_multiplier": 1.25,
+    "uncertainty_multiplier": 1.25,
+    "evidence_threshold_multiplier": 0.75,
+    "decision_flip_rate": 0.05,
+    "act_rate": 0.6333,
+    "request_rate": 0.0
+  },
+  {
+    "security_multiplier": 1.25,
+    "operations_multiplier": 1.25,
+    "uncertainty_multiplier": 1.25,
+    "evidence_threshold_multiplier": 1.25,
+    "decision_flip_rate": 0.05,
+    "act_rate": 0.6333,
+    "request_rate": 0.0
+  }
+]

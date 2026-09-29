@@ -1,0 +1,28 @@
+{
+  "benchmark_version": "sealed-benchmark-v1",
+  "generator_version": "generator-v1",
+  "controller_version": "controller-v1",
+  "controller_sha256": "32e0496f027d4845f99094644e20c56f81b6956a3d871c57d93b8b2f800b9b3b",
+  "benchmark_config_sha256": "2cc5d08ec0cb0087e40f615f10c7420baa9308efc288a10e4b8f5307b200ab3e",
+  "partition_sizes": {
+    "train": 30,
+    "dev": 30,
+    "test": 60
+  },
+  "partition_seeds": {
+    "train": {
+      "start": 1000,
+      "count": 30
+    },
+    "dev": {
+      "start": 2000,
+      "count": 30
+    },
+    "test": {
+      "start": 3000,
+      "count": 60
+    }
+  },
+  "test_scenario_hash": "fe1870ed3539e448ca336b6c2cafea0d77d3ac9edf6136b1f5887bbe5ca728aa",
+  "sealed_test_used_for_tuning": false
+}

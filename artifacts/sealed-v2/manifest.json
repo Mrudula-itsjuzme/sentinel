@@ -1,0 +1,11 @@
+{
+  "benchmark_version": "sealed-benchmark-v2",
+  "generator_version": "service-centric-generator-v2",
+  "controller_v1_sha256": "32e0496f027d4845f99094644e20c56f81b6956a3d871c57d93b8b2f800b9b3b",
+  "controller_v2_sha256": "981a8eecf88a8e46724d1f176e6cdd4a3f9832ee7692b999171eb9bed85a6361",
+  "benchmark_config_sha256": "fc97ca6ea52f76eaed2a81cc945c5de276a5c96c934d83a69c4a72ac5fc7822a",
+  "test_count": 60,
+  "test_seed_start": 6000,
+  "test_scenario_hash": "b8aec08aa9a543cec526575ef614e155fe7321547129cd51a1f8982bdfe869f2",
+  "controller_v2_tuned_after_sealed_view": false
+}

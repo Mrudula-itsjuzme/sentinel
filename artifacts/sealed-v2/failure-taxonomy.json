@@ -1,0 +1,20 @@
+{
+  "sentinel-v1": {
+    "execution_mismatch": 5,
+    "unsafe_abstention": 36
+  },
+  "sentinel-v2": {
+    "execution_mismatch": 37,
+    "replan_failed": 37,
+    "escalation_required": 37,
+    "unsafe_abstention": 4
+  },
+  "policy-only-selection": {
+    "execution_mismatch": 35,
+    "false_positive_intervention": 9
+  },
+  "minimum-operational-impact": {
+    "execution_mismatch": 35,
+    "false_positive_intervention": 9
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "executed_actions": 19,
+  "mismatches": 9,
+  "mismatch_rate": 0.4737,
+  "attack_path_mae": 0.5789,
+  "sensitive_asset_mae": 0.3684,
+  "service_impact_mae": 0.1579,
+  "user_impact_mae": 0.0,
+  "critical_service_mismatch_rate": 0.1579
+}

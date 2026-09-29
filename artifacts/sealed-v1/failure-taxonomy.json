@@ -1,0 +1,52 @@
+{
+  "first-valid-action": {
+    "execution_mismatch": 57,
+    "wrong_hypothesis_or_false_positive": 15,
+    "hidden_alternate_attack_path": 9,
+    "incomplete_evidence": 9,
+    "incorrect_business_dependency_model": 7
+  },
+  "maximum-security-action": {
+    "execution_mismatch": 36,
+    "wrong_hypothesis_or_false_positive": 18,
+    "incorrect_business_dependency_model": 9,
+    "hidden_alternate_attack_path": 7,
+    "incomplete_evidence": 5,
+    "utility_or_ranking_regret": 4,
+    "policy_too_permissive": 1
+  },
+  "minimum-operational-impact": {
+    "execution_mismatch": 39,
+    "wrong_hypothesis_or_false_positive": 18,
+    "incorrect_business_dependency_model": 5,
+    "policy_too_permissive": 5,
+    "hidden_alternate_attack_path": 4,
+    "incomplete_evidence": 4
+  },
+  "policy-only-selection": {
+    "unsafe_abstention_or_defer": 17,
+    "policy_too_restrictive": 17,
+    "execution_mismatch": 13,
+    "wrong_hypothesis_or_false_positive": 9,
+    "policy_too_permissive": 5,
+    "incomplete_evidence": 3,
+    "hidden_alternate_attack_path": 2,
+    "incorrect_business_dependency_model": 1
+  },
+  "nemotron-preferred-action-fixture": {
+    "execution_mismatch": 49,
+    "wrong_hypothesis_or_false_positive": 15,
+    "hidden_alternate_attack_path": 11,
+    "incomplete_evidence": 9,
+    "incorrect_business_dependency_model": 7,
+    "policy_too_permissive": 3
+  },
+  "sentinel-counterfactual-selection": {
+    "unsafe_abstention_or_defer": 23,
+    "policy_too_restrictive": 17,
+    "execution_mismatch": 9,
+    "policy_too_permissive": 3,
+    "hidden_alternate_attack_path": 2,
+    "incomplete_evidence": 2
+  }
+}

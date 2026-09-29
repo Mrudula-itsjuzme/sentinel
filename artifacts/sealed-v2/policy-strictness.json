@@ -1,0 +1,10 @@
+{
+  "candidate_decisions": {
+    "CRITICAL_SERVICE_DISRUPTED": 86,
+    "POLICY_SATISFIED": 60,
+    "CONTEXTUAL_REVERSIBLE_ALLOW": 34
+  },
+  "all_candidates_denied_scenarios": 0,
+  "scenarios_with_contextual_allow": 34,
+  "total_scenarios": 60
+}

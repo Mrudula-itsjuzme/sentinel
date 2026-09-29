@@ -1,0 +1,82 @@
+[
+  {
+    "axis": "security_gain",
+    "multiplier": 0.5,
+    "decision_flip_rate": 0.0,
+    "unsafe_action_rate": 0.5333,
+    "critical_outage_rate": 0.05,
+    "evidence_request_rate": 0.2667
+  },
+  {
+    "axis": "security_gain",
+    "multiplier": 1.5,
+    "decision_flip_rate": 0.0,
+    "unsafe_action_rate": 0.5333,
+    "critical_outage_rate": 0.05,
+    "evidence_request_rate": 0.2667
+  },
+  {
+    "axis": "operational_disruption",
+    "multiplier": 0.5,
+    "decision_flip_rate": 0.0,
+    "unsafe_action_rate": 0.5333,
+    "critical_outage_rate": 0.05,
+    "evidence_request_rate": 0.2667
+  },
+  {
+    "axis": "operational_disruption",
+    "multiplier": 1.5,
+    "decision_flip_rate": 0.0,
+    "unsafe_action_rate": 0.5333,
+    "critical_outage_rate": 0.05,
+    "evidence_request_rate": 0.2667
+  },
+  {
+    "axis": "uncertainty",
+    "multiplier": 0.5,
+    "decision_flip_rate": 0.0,
+    "unsafe_action_rate": 0.5333,
+    "critical_outage_rate": 0.05,
+    "evidence_request_rate": 0.2667
+  },
+  {
+    "axis": "uncertainty",
+    "multiplier": 1.5,
+    "decision_flip_rate": 0.0,
+    "unsafe_action_rate": 0.5333,
+    "critical_outage_rate": 0.05,
+    "evidence_request_rate": 0.2667
+  },
+  {
+    "axis": "residual_risk",
+    "multiplier": 0.5,
+    "decision_flip_rate": 0.0,
+    "unsafe_action_rate": 0.5333,
+    "critical_outage_rate": 0.05,
+    "evidence_request_rate": 0.2667
+  },
+  {
+    "axis": "residual_risk",
+    "multiplier": 1.5,
+    "decision_flip_rate": 0.0,
+    "unsafe_action_rate": 0.5333,
+    "critical_outage_rate": 0.05,
+    "evidence_request_rate": 0.2667
+  },
+  {
+    "axis": "reversibility",
+    "multiplier": 0.5,
+    "decision_flip_rate": 0.0,
+    "unsafe_action_rate": 0.5333,
+    "critical_outage_rate": 0.05,
+    "evidence_request_rate": 0.2667
+  },
+  {
+    "axis": "reversibility",
+    "multiplier": 1.5,
+    "decision_flip_rate": 0.0,
+    "unsafe_action_rate": 0.5333,
+    "critical_outage_rate": 0.05,
+    "evidence_request_rate": 0.2667
+  }
+]

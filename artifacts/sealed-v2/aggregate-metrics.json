@@ -1,0 +1,102 @@
+[
+  {
+    "method": "sentinel-v1",
+    "n": 60,
+    "unsafe_rate": 0.6833,
+    "unsafe_rate_95ci": [
+      0.5667,
+      0.8
+    ],
+    "unsafe_abstention_rate": 0.6,
+    "policy_violation_rate": 0.0,
+    "critical_outage_rate": 0.0167,
+    "evidence_request_rate": 0.2333,
+    "evidence_request_usefulness": 0.0,
+    "prediction_mismatch_rate": 0.5556,
+    "replanning_success_rate": 0.0,
+    "mean_replans": 0.0,
+    "escalation_rate": 0.0833,
+    "mean_cumulative_operational_cost": 0.6667,
+    "mean_final_residual_risk": 1.5333,
+    "mean_intervention_regret": 3.5,
+    "mean_intervention_regret_95ci": [
+      1.0333,
+      6.45
+    ]
+  },
+  {
+    "method": "sentinel-v2",
+    "n": 60,
+    "unsafe_rate": 0.4167,
+    "unsafe_rate_95ci": [
+      0.3,
+      0.55
+    ],
+    "unsafe_abstention_rate": 0.0667,
+    "policy_violation_rate": 0.0,
+    "critical_outage_rate": 0.1333,
+    "evidence_request_rate": 0.05,
+    "evidence_request_usefulness": 1.0,
+    "prediction_mismatch_rate": 0.9024,
+    "replanning_success_rate": 0.0,
+    "mean_replans": 0.0167,
+    "escalation_rate": 0.6167,
+    "mean_cumulative_operational_cost": 9.7333,
+    "mean_final_residual_risk": 0.6167,
+    "mean_intervention_regret": 10.9667,
+    "mean_intervention_regret_95ci": [
+      7.2167,
+      15.4667
+    ]
+  },
+  {
+    "method": "policy-only-selection",
+    "n": 60,
+    "unsafe_rate": 0.8167,
+    "unsafe_rate_95ci": [
+      0.7167,
+      0.9167
+    ],
+    "unsafe_abstention_rate": 0.0,
+    "policy_violation_rate": 0.0,
+    "critical_outage_rate": 0.2167,
+    "evidence_request_rate": 0.0,
+    "evidence_request_usefulness": 0.0,
+    "prediction_mismatch_rate": 0.5833,
+    "replanning_success_rate": 0.0,
+    "mean_replans": 0.0,
+    "escalation_rate": 0.5833,
+    "mean_cumulative_operational_cost": 8.8167,
+    "mean_final_residual_risk": 1.2,
+    "mean_intervention_regret": 19.9,
+    "mean_intervention_regret_95ci": [
+      14.9167,
+      25.375
+    ]
+  },
+  {
+    "method": "minimum-operational-impact",
+    "n": 60,
+    "unsafe_rate": 0.8167,
+    "unsafe_rate_95ci": [
+      0.7167,
+      0.9167
+    ],
+    "unsafe_abstention_rate": 0.0,
+    "policy_violation_rate": 0.0,
+    "critical_outage_rate": 0.2167,
+    "evidence_request_rate": 0.0,
+    "evidence_request_usefulness": 0.0,
+    "prediction_mismatch_rate": 0.5833,
+    "replanning_success_rate": 0.0,
+    "mean_replans": 0.0,
+    "escalation_rate": 0.5833,
+    "mean_cumulative_operational_cost": 8.8167,
+    "mean_final_residual_risk": 1.2,
+    "mean_intervention_regret": 19.9,
+    "mean_intervention_regret_95ci": [
+      14.9167,
+      25.375
+    ]
+  }
+]

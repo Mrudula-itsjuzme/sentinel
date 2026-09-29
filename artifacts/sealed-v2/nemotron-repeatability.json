@@ -1,0 +1,5 @@
+{
+  "status": "UNAVAILABLE",
+  "reason": "NEBIUS_API_KEY and NEBIUS_MODEL were not both present.",
+  "synthetic_substitute_used": false
+}

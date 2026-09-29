@@ -1,0 +1,146 @@
+[
+  {
+    "method": "first-valid-action",
+    "n": 60,
+    "unsafe_action_rate": 1.0,
+    "unsafe_action_rate_95ci": [
+      1.0,
+      1.0
+    ],
+    "policy_violation_rate": 1.0,
+    "critical_outage_rate": 0.15,
+    "unnecessary_action_rate": 0.25,
+    "act_rate": 1.0,
+    "defer_rate": 0.0,
+    "evidence_request_rate": 0.0,
+    "unsafe_abstention_rate": 0.0,
+    "prediction_mismatch_rate": 0.95,
+    "mean_intervention_regret": 121.8333,
+    "mean_intervention_regret_95ci": [
+      114.2611,
+      129.6167
+    ],
+    "mean_security_regret": 16.6944,
+    "mean_operational_regret": 14.55
+  },
+  {
+    "method": "maximum-security-action",
+    "n": 60,
+    "unsafe_action_rate": 0.8167,
+    "unsafe_action_rate_95ci": [
+      0.7167,
+      0.9167
+    ],
+    "policy_violation_rate": 0.75,
+    "critical_outage_rate": 0.6167,
+    "unnecessary_action_rate": 0.3,
+    "act_rate": 1.0,
+    "defer_rate": 0.0,
+    "evidence_request_rate": 0.0,
+    "unsafe_abstention_rate": 0.0,
+    "prediction_mismatch_rate": 0.6,
+    "mean_intervention_regret": 94.1944,
+    "mean_intervention_regret_95ci": [
+      78.5889,
+      109.0445
+    ],
+    "mean_security_regret": 7.375,
+    "mean_operational_regret": 19.9167
+  },
+  {
+    "method": "minimum-operational-impact",
+    "n": 60,
+    "unsafe_action_rate": 0.75,
+    "unsafe_action_rate_95ci": [
+      0.6333,
+      0.85
+    ],
+    "policy_violation_rate": 0.4333,
+    "critical_outage_rate": 0.3667,
+    "unnecessary_action_rate": 0.3,
+    "act_rate": 1.0,
+    "defer_rate": 0.0,
+    "evidence_request_rate": 0.0,
+    "unsafe_abstention_rate": 0.0,
+    "prediction_mismatch_rate": 0.65,
+    "mean_intervention_regret": 50.5611,
+    "mean_intervention_regret_95ci": [
+      37.7028,
+      63.175
+    ],
+    "mean_security_regret": 2.5,
+    "mean_operational_regret": 13.3667
+  },
+  {
+    "method": "policy-only-selection",
+    "n": 60,
+    "unsafe_action_rate": 0.6,
+    "unsafe_action_rate_95ci": [
+      0.4667,
+      0.7167
+    ],
+    "policy_violation_rate": 0.0,
+    "critical_outage_rate": 0.0833,
+    "unnecessary_action_rate": 0.15,
+    "act_rate": 0.5667,
+    "defer_rate": 0.4333,
+    "evidence_request_rate": 0.0,
+    "unsafe_abstention_rate": 0.2833,
+    "prediction_mismatch_rate": 0.3824,
+    "mean_intervention_regret": 5.4333,
+    "mean_intervention_regret_95ci": [
+      2.3333,
+      9.1083
+    ],
+    "mean_security_regret": 2.5,
+    "mean_operational_regret": 4.1833
+  },
+  {
+    "method": "nemotron-preferred-action-fixture",
+    "n": 60,
+    "unsafe_action_rate": 0.8667,
+    "unsafe_action_rate_95ci": [
+      0.7833,
+      0.95
+    ],
+    "policy_violation_rate": 0.75,
+    "critical_outage_rate": 0.2667,
+    "unnecessary_action_rate": 0.25,
+    "act_rate": 1.0,
+    "defer_rate": 0.0,
+    "evidence_request_rate": 0.0,
+    "unsafe_abstention_rate": 0.0,
+    "prediction_mismatch_rate": 0.8167,
+    "mean_intervention_regret": 91.4611,
+    "mean_intervention_regret_95ci": [
+      77.7333,
+      105.2556
+    ],
+    "mean_security_regret": 9.2778,
+    "mean_operational_regret": 15.1167
+  },
+  {
+    "method": "sentinel-counterfactual-selection",
+    "n": 60,
+    "unsafe_action_rate": 0.5333,
+    "unsafe_action_rate_95ci": [
+      0.4,
+      0.6667
+    ],
+    "policy_violation_rate": 0.0,
+    "critical_outage_rate": 0.05,
+    "unnecessary_action_rate": 0.0,
+    "act_rate": 0.3167,
+    "defer_rate": 0.4167,
+    "evidence_request_rate": 0.2667,
+    "unsafe_abstention_rate": 0.3833,
+    "prediction_mismatch_rate": 0.4737,
+    "mean_intervention_regret": 5.6667,
+    "mean_intervention_regret_95ci": [
+      2.425,
+      9.4667
+    ],
+    "mean_security_regret": 4.9167,
+    "mean_operational_regret": 2.25
+  }
+]
