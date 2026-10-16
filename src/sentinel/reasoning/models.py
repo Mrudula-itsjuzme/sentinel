@@ -53,4 +53,7 @@ class ReasoningResponse(BaseModel):
     provider: str
     model: str
     request_id: str | None = None
-
+    latency_ms: float | None = None
+    input_tokens: int | None = None
+    output_tokens: int | None = None
+    total_tokens: int | None = None

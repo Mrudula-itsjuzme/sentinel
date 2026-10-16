@@ -1,0 +1,10 @@
+services:
+  sentinel:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      NEBIUS_API_KEY: ${NEBIUS_API_KEY:-}
+      NEBIUS_MODEL: ${NEBIUS_MODEL:-}
+      NEBIUS_BASE_URL: ${NEBIUS_BASE_URL:-https://api.tokenfactory.nebius.com/v1}
+    restart: unless-stopped

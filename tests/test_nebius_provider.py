@@ -19,6 +19,7 @@ def test_nebius_client_sends_strict_schema_without_leaking_key() -> None:
             headers={"x-request-id": "req-123"},
             json={
                 "model": "nvidia/test-nemotron",
+                "usage": {"prompt_tokens": 11, "completion_tokens": 7, "total_tokens": 18},
                 "choices": [
                     {
                         "finish_reason": "stop",
@@ -45,6 +46,10 @@ def test_nebius_client_sends_strict_schema_without_leaking_key() -> None:
     assert captured["body"]["temperature"] == 0
     assert captured["body"]["response_format"]["json_schema"]["strict"] is True
     assert response.request_id == "req-123"
+    assert response.latency_ms is not None
+    assert response.input_tokens == 11
+    assert response.output_tokens == 7
+    assert response.total_tokens == 18
 
 
 def test_nebius_client_fails_safely_on_bad_envelope() -> None:

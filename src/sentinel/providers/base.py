@@ -7,6 +7,10 @@ class ProviderResponse:
     content: str
     model: str
     request_id: str | None = None
+    latency_ms: float | None = None
+    input_tokens: int | None = None
+    output_tokens: int | None = None
+    total_tokens: int | None = None
 
 
 class ReasoningProvider(Protocol):
@@ -26,4 +30,3 @@ class ProviderError(RuntimeError):
     def __init__(self, code: str, message: str) -> None:
         self.code = code
         super().__init__(message)
-

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import time
 from dataclasses import dataclass
 from typing import Any
 
@@ -70,6 +71,7 @@ class NebiusReasoningClient:
         client = self._http_client or httpx.AsyncClient(timeout=self.config.timeout_seconds)
         try:
             try:
+                started_at = time.perf_counter()
                 response = await client.post(
                     f"{self.config.base_url}/chat/completions",
                     headers={"Authorization": f"Bearer {self.config.api_key}"},
@@ -106,7 +108,16 @@ class NebiusReasoningClient:
                 raise ProviderError("MALFORMED_PROVIDER_RESPONSE", "Nebius returned an invalid response envelope") from exc
 
             request_id = response.headers.get("x-request-id")
-            return ProviderResponse(content=content, model=str(body.get("model", self.config.model)), request_id=request_id)
+            usage = body.get("usage") if isinstance(body.get("usage"), dict) else {}
+            return ProviderResponse(
+                content=content,
+                model=str(body.get("model", self.config.model)),
+                request_id=request_id,
+                latency_ms=round((time.perf_counter() - started_at) * 1000, 2),
+                input_tokens=usage.get("prompt_tokens"),
+                output_tokens=usage.get("completion_tokens"),
+                total_tokens=usage.get("total_tokens"),
+            )
         finally:
             if owns_client:
                 await client.aclose()

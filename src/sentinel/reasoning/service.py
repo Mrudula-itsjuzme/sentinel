@@ -46,7 +46,7 @@ class IncidentReasoner:
 
         supported_targets = {item.action: item.target for item in INTERVENTIONS}
         for intervention in proposal.interventions:
-            if supported_targets[intervention.action] != intervention.target:
+            if supported_targets.get(intervention.action) != intervention.target:
                 raise UnsafeModelOutput("UNSUPPORTED_TARGET", "Model output used an unsupported action target")
 
         return ReasoningResponse(
@@ -54,5 +54,8 @@ class IncidentReasoner:
             provider=self.provider.name,
             model=provider_response.model,
             request_id=provider_response.request_id,
+            latency_ms=provider_response.latency_ms,
+            input_tokens=provider_response.input_tokens,
+            output_tokens=provider_response.output_tokens,
+            total_tokens=provider_response.total_tokens,
         )
-

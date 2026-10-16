@@ -11,6 +11,15 @@ from sentinel.reasoning.models import ReasoningResponse
 from sentinel.reasoning.service import IncidentReasoner, UnsafeModelOutput
 from sentinel.scenarios.lateral_movement import build_evidence, build_world
 from sentinel.services.counterfactual import simulate_all
+from sentinel.services.incidents import (
+    IncidentReport,
+    IncidentRunRequest,
+    experiment_results,
+    get_incident,
+    list_incidents,
+    model_config_status,
+    run_incident,
+)
 
 router = APIRouter()
 
@@ -71,3 +80,41 @@ async def reason(reasoner: IncidentReasoner = Depends(get_reasoner)) -> Reasonin
         raise HTTPException(status_code=status, detail={"code": exc.code, "message": str(exc)}) from exc
     except UnsafeModelOutput as exc:
         raise HTTPException(status_code=502, detail={"code": exc.code, "message": str(exc)}) from exc
+
+
+@router.post("/incidents", response_model=IncidentReport)
+async def create_incident(request: IncidentRunRequest) -> IncidentReport:
+    """Run the complete policy-gated incident loop against an isolated simulator clone."""
+
+    return await run_incident(request)
+
+
+@router.get("/incidents", response_model=tuple[IncidentReport, ...])
+async def incidents() -> tuple[IncidentReport, ...]:
+    return list_incidents()
+
+
+@router.get("/incidents/{incident_id}", response_model=IncidentReport)
+async def incident(incident_id: str) -> IncidentReport:
+    report = get_incident(incident_id)
+    if report is None:
+        raise HTTPException(status_code=404, detail={"code": "INCIDENT_NOT_FOUND", "message": "Incident does not exist"})
+    return report
+
+
+@router.get("/incidents/{incident_id}/timeline")
+async def incident_timeline(incident_id: str):
+    report = get_incident(incident_id)
+    if report is None:
+        raise HTTPException(status_code=404, detail={"code": "INCIDENT_NOT_FOUND", "message": "Incident does not exist"})
+    return report.timeline
+
+
+@router.get("/experiments")
+async def experiments():
+    return experiment_results()
+
+
+@router.get("/config/model")
+async def model_configuration():
+    return model_config_status()

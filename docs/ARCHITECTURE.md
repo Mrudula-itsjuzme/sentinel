@@ -1,6 +1,6 @@
 # Architecture
 
-Sentinel separates untrusted proposal, simulation, policy, and eventual execution. Proposal and deterministic foundations exist; execution does not.
+Sentinel separates untrusted proposal, simulation, policy, simulated execution, and verification. Real infrastructure execution does not exist.
 
 ```text
 evidence -> prompt -> Nebius/Nemotron -> local schema + grounding validation
@@ -36,6 +36,14 @@ deterministic policy -> ALLOW / DENY + code
 - `execution`: independently coded seeded execution outcomes and mismatch verification; it does not import simulator transitions.
 - `policy`: deterministic rules with no model dependency.
 - `api`: a thin transport layer; it contains no simulation logic.
+- `services/incidents`: the product loop, in-memory report store, and structured audit timeline.
+- `web`: a dependency-free dashboard that renders only API state and checked-in experiment data.
+
+## Product loop
+
+`POST /incidents` creates a report with explicit detected, observed, reasoned, proposed, policy-approved or policy-rejected, executing, succeeded or failed, verified, and escalated states. Timestamps and the incident ID identify each event; evidence IDs, action, target, policy result, execution result, and deterministic/model provenance are structured fields rather than prose-only logs.
+
+The default product demo applies an authorized action only to a cloned `WorldState`. Verification recomputes attack paths and the payroll dependency from the changed state. A policy-rejected proposal can trigger a supported lower-impact fallback, but policy is evaluated again and never bypassed.
 
 ## AI trust boundary
 

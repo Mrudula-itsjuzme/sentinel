@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sentinel · Policy-gated incident response</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header>
+    <div><p class="eyebrow">Reliability control plane</p><h1>Sentinel</h1></div>
+    <div class="system-state"><span class="pulse"></span><span>Simulator ready</span><small id="model-state">Checking model…</small></div>
+  </header>
+  <main>
+    <section class="hero panel">
+      <div><p class="eyebrow">Current scenario</p><h2>Credential-backed lateral movement</h2><p>AI proposes. Deterministic policy authorizes. The simulator executes. Independent state checks verify recovery.</p></div>
+      <div class="controls">
+        <label><input id="live-model" type="checkbox"> Use live Nebius + NVIDIA reasoning</label>
+        <button id="run-safe">Run recovery</button>
+        <button id="run-block" class="secondary">Show policy block</button>
+      </div>
+    </section>
+
+    <section class="metrics" aria-label="Incident metrics">
+      <article><span>Status</span><strong id="status">READY</strong></article>
+      <article><span>Evidence</span><strong id="evidence-count">4 signals</strong></article>
+      <article><span>Attack paths</span><strong id="paths">1 → —</strong></article>
+      <article><span>Payroll</span><strong id="payroll">Protected</strong></article>
+    </section>
+
+    <section class="grid">
+      <article class="panel decision">
+        <p class="eyebrow">Decision record</p><h2>Reason → policy → action</h2>
+        <dl>
+          <dt>Diagnosis</dt><dd id="diagnosis">Run an incident to populate the decision record.</dd>
+          <dt>Proposed</dt><dd id="proposed">—</dd>
+          <dt>Policy</dt><dd id="policy">—</dd>
+          <dt>Selected</dt><dd id="selected">—</dd>
+          <dt>Verification</dt><dd id="verification">—</dd>
+        </dl>
+      </article>
+      <article class="panel">
+        <p class="eyebrow">Audit trail</p><h2>Incident timeline</h2>
+        <ol id="timeline" class="timeline"><li><span></span><div><strong>Waiting for incident</strong><p>No action has been taken.</p></div></li></ol>
+      </article>
+    </section>
+
+    <section class="panel research">
+      <div><p class="eyebrow">Sealed research</p><h2>Complexity did not erase the baseline</h2><p>Fresh seeded scenarios. Zero policy violations. The bounded oracle is diagnostic—not product performance.</p></div>
+      <div id="experiment-bars" class="bars"></div>
+    </section>
+  </main>
+  <footer>Deterministic simulator · explicit policy · simulated execution only · <a href="/docs">OpenAPI</a></footer>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

@@ -1,88 +1,136 @@
 # Sentinel
 
-Sentinel is a counterfactual incident-response engine. This first milestone is deliberately narrow: one deterministic cyber world, one lateral-movement incident, and exactly three simulated interventions. No LLM decides metrics or authorization, and no endpoint performs a real remediation.
+Sentinel is a policy-gated incident-response agent that uses AI for evidence-grounded proposals while keeping authorization, simulation, execution, and verification deterministic and auditable.
 
-## What is implemented
+## The problem
 
-- Inspectable enterprise topology and ground-truth state
-- Incident observations stored separately from ground truth
-- Deterministic attack-path and business-dependency calculations
-- `ISOLATE_HOST`, `BLOCK_SMB`, and `DISABLE_ACCOUNT` counterfactuals
-- Deterministic allow/deny policy evaluation
-- Evidence-grounded Nemotron proposal generation through Nebius Token Factory
-- Counterfactual utility decomposition, decision baselines, abstention, and evidence requests
-- Controller v2 evidence-value decisions, context-dependent deterministic policy, and bounded verification-driven replanning
-- A structurally distinct service-centric generator and frozen sealed-v2 evaluation
-- Controller v3 post-action observations, explicit state estimation, bounded recovery, and sealed-v3 comparison baselines
-- Controller v4 recovery replay, component-level error attribution, targeted-observation value, and strong retry baselines
-- Controller v5 retry-then-fallback default, typed network/credential/session/trust paths, two justified recovery actions, and a bounded sequence oracle
-- Five-scenario controlled evaluation and verification contracts
-- FastAPI endpoints and deterministic tests
+Incident responders must act quickly with incomplete evidence, but an unrestricted agent can turn a plausible recommendation into a costly outage. Sentinel separates reasoning from authority: the model can interpret observations and propose a supported action; it cannot change policy, see hidden simulator state, or execute remediation.
 
-Nemotron is an untrusted reasoning layer: it can produce typed hypotheses and suggest only the three supported interventions. Sentinel validates its incident ID, evidence references, action, and target locally. The model does not receive simulator results and cannot authorize, mutate, or execute anything.
+## The idea
 
-## Run locally
+```mermaid
+flowchart LR
+  I[Incident] --> O[Observer]
+  O --> R[Reasoning]
+  R --> C[Candidate actions]
+  C --> P{Deterministic policy}
+  P -->|deny| C
+  P -->|allow| X[Simulated executor]
+  X --> V[Verifier]
+  V --> A[Audit report]
+  V -->|failed| F[Retry, fallback, or escalate]
+```
+
+The dashboard runs the complete product loop: detect a lateral-movement incident, collect four observations, reason locally or with NVIDIA Nemotron, simulate candidates, enforce policy, apply the authorized action to an isolated clone, verify reachability and payroll availability, and retain a structured timeline.
+
+## Nebius + NVIDIA
+
+`POST /reason` and the optional live path in `POST /incidents` call a configured NVIDIA Nemotron model through Nebius Token Factory's OpenAI-compatible chat-completions API. Sentinel requests strict JSON-schema output, then validates the incident ID, evidence references, action, and target locally. The response records the provider, model, request ID, latency, and token usage when Nebius returns it. No value is fabricated when usage is absent.
+
+Set `NEBIUS_API_KEY` and a current NVIDIA Nemotron model ID in `NEBIUS_MODEL`. Without credentials, the full local demo still runs and explicitly labels its deterministic reasoning fallback. Credentials are never returned by `/config/model`.
+
+## Safety
+
+The deterministic policy engine is authoritative. A model proposal is never an authorization. Every candidate is simulated before policy evaluation, denied actions are never applied, and post-action recovery is independently recomputed. The demo's safety path proposes host isolation: although it stops the modeled attack, policy blocks it because it impacts two users and payroll, then authorizes the lower-impact account action.
+
+All execution in this repository is simulation. Sentinel does not mutate real infrastructure.
+
+## Research
+
+The project contains frozen controller experiments v1–v5 and machine-readable JSON/CSV artifacts. Negative results are retained:
+
+- On sealed v3, naïve retry beat the state-estimation controller on recovery, escalation, residual risk, and cost.
+- On sealed v4, retry-then-fallback reached 0.71 resolution versus 0.44 for selective recovery.
+- On 120 untouched sealed-v5 scenarios, retry-then-fallback resolved 27.50%; structural switching reached 30.00% but slightly worsened residual risk (1.0667 versus 1.0583).
+- The 83.33% bounded-sequence oracle uses hidden execution state and is an offline diagnostic upper bound, not deployable performance.
+- Every compared sealed-v5 method recorded zero policy violations under the frozen synthetic benchmark definition.
+
+See [the research report](docs/RESEARCH.md), [evaluation protocol](docs/EVALUATION_PROTOCOL.md), and generated [sealed-v5 metrics](artifacts/sealed-v5/aggregate-metrics.json).
+
+## Demo
 
 ```bash
 uv sync --extra dev
-PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run pytest
 uv run uvicorn sentinel.main:app --reload
 ```
 
-Python 3.11 or newer is required. Equivalent `venv` and `pip install -e '.[dev]'` commands also work. Disabling ambient pytest plugins keeps unrelated system packages (such as ROS plugins) out of this project's test run.
-
-Open `http://127.0.0.1:8000/docs` for the generated API schema.
-
-To enable live reasoning, copy `.env.example` values into your environment, set `NEBIUS_API_KEY`, and set `NEBIUS_MODEL` to a currently available NVIDIA Nemotron model ID. The model is deliberately configuration-required rather than hard-coded because Token Factory availability changes.
+Open `http://127.0.0.1:8000`, click **Run recovery**, then click **Show policy block**. The complete 2–3 minute script is in [docs/DEMO.md](docs/DEMO.md). OpenAPI is available at `/docs`.
 
 ## API
 
-- `GET /health` — service status
-- `GET /scenario` — world state and separately modeled evidence
-- `POST /simulate` — all three counterfactual results
-- `POST /policy/evaluate` — deterministic policy decision for a supplied simulation result
-- `POST /reason` — ask configured Nemotron for a typed, evidence-grounded proposal
+- `GET /health` — liveness.
+- `GET /scenario` — deterministic world and separately modeled evidence.
+- `POST /simulate` — the three frozen MVP counterfactuals.
+- `POST /policy/evaluate` — deterministic allow/deny for a simulation result.
+- `POST /reason` — live, validated Nebius/Nemotron reasoning; fails closed when unconfigured.
+- `POST /incidents` — complete policy-gated product loop; accepts `use_live_reasoning` and an optional demo `proposed_action`.
+- `GET /incidents`, `/incidents/{id}`, `/incidents/{id}/timeline` — in-memory reports and audit events.
+- `GET /experiments` — checked-in sealed-v5 aggregate metrics.
+- `GET /config/model` — safe configuration status, never credentials.
 
-`/reason` returns `503 NEBIUS_NOT_CONFIGURED` without credentials. Invalid provider envelopes and unsafe model output fail closed with a `502` and a stable error code.
+Incident reports are in memory for the demo and are lost when the process restarts.
 
-## Controlled evaluation
+## Running locally
 
-```bash
-uv run python -m sentinel.evaluate --output-dir artifacts/evaluation
-```
-
-This runs five deterministic scenarios against six decision methods and four ablation configurations. Generated results explicitly label model preference and uncertainty as fixtures rather than live Nemotron measurements. See [docs/RESEARCH.md](docs/RESEARCH.md).
-
-Run the frozen sealed benchmark with independent execution:
+Python 3.11+ is required.
 
 ```bash
-uv run --no-sync python -m sentinel.sealed_evaluate --output-dir artifacts/sealed-v1
+uv sync --extra dev
+cp .env.example .env  # optional; export values before startup
+uv run uvicorn sentinel.main:app --host 127.0.0.1 --port 8000
 ```
 
-Controller v2 is evaluated separately after its train/dev freeze:
+For a credential-free smoke test:
 
 ```bash
-uv run --no-sync python -m sentinel.sealed_evaluate_v2
+curl -s -X POST http://127.0.0.1:8000/incidents \
+  -H 'content-type: application/json' -d '{}'
 ```
 
-Run the frozen execution-state recovery benchmark with:
+## Tests
 
 ```bash
-uv run --no-sync python -m sentinel.sealed_evaluate_v3
+PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 uv run pytest -q
 ```
 
-Run the frozen recovery-choice benchmark with:
+The pre-change baseline was 84 passing tests. Run the command above for the current count; tests mock provider calls and never require paid inference.
 
-```bash
-uv run --no-sync python -m sentinel.sealed_evaluate_v4
-```
-
-Run the frozen bounded-sequence benchmark with:
+Reproduce the frozen v5 evaluation without changing its config:
 
 ```bash
 uv run --no-sync python -m sentinel.sealed_evaluate_v5
 ```
 
-The protocol and failure taxonomy are documented in [docs/EVALUATION_PROTOCOL.md](docs/EVALUATION_PROTOCOL.md) and [docs/FAILURE_ANALYSIS.md](docs/FAILURE_ANALYSIS.md).
+## Deployment
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/MVP.md](docs/MVP.md), [docs/RESEARCH.md](docs/RESEARCH.md), and [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md).
+Build and run the same image locally or on a Nebius AI Cloud container/VM:
+
+```bash
+docker compose up --build
+```
+
+The image runs as a non-root user, exposes port 8000, and includes a `/health` health check. To deploy on Nebius, build and push `Dockerfile` to the chosen registry, create a container workload with port 8000, and inject `NEBIUS_API_KEY`, `NEBIUS_MODEL`, and optionally `NEBIUS_BASE_URL` as runtime secrets. No deployment URL is claimed because this checkout has no cloud credentials or provisioned target.
+
+## Repository structure
+
+- `src/sentinel/api` — FastAPI transport.
+- `src/sentinel/services` — counterfactual and incident-loop orchestration.
+- `src/sentinel/reasoning`, `providers` — strict model boundary and Nebius adapter.
+- `src/sentinel/policy`, `simulator`, `execution` — deterministic safety, prediction, execution, and verification.
+- `src/sentinel/decision` — production and research controllers.
+- `src/sentinel/scenarios`, `evaluation` — seeded worlds and frozen benchmark harnesses.
+- `src/sentinel/web` — dependency-free responsive demo dashboard.
+- `artifacts` — checked-in machine-readable controlled and sealed results.
+- `docs` — architecture, threat model, protocol, failure analysis, research, and demo script.
+
+## Limitations
+
+- Worlds, execution failures, and observations are synthetic; results do not establish real-world security effectiveness.
+- Live Nemotron quality and repeatability have not been benchmarked in the checked-in results.
+- The product demo uses one lateral-movement scenario and an in-memory incident store.
+- Execution is simulated only; there is no production infrastructure adapter.
+- The bounded oracle has privileged hidden state and cannot be compared as a deployable controller.
+
+## Future work
+
+Add a persistent report store, a sandboxed infrastructure adapter with rollback receipts, replay against redacted real incident traces, and operator studies. Any added recovery action should be justified by observed failure evidence and receive simulation, policy, execution, verification, and test contracts.

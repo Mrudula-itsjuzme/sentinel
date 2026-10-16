@@ -82,3 +82,53 @@ def test_reason_returns_validated_provider_result() -> None:
     assert response.status_code == 200
     assert response.json()["proposal"]["evidence_insufficient"] is True
     assert response.json()["provider"] == "fake"
+
+
+def test_incident_loop_recovers_with_policy_authorized_action() -> None:
+    response = request("POST", "/incidents", json={"use_live_reasoning": False})
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "RECOVERED"
+    assert body["selected_action"] == "DISABLE_ACCOUNT"
+    assert body["execution_mode"] == "DETERMINISTIC_SIMULATION"
+    assert body["verification"]["attack_paths_remaining"] == 0
+    assert body["verification"]["payroll_available"] is True
+    assert body["model_call"]["fallback_used"] is True
+    assert any(event["state"] == "VERIFIED" for event in body["timeline"])
+
+
+def test_incident_loop_blocks_unsafe_proposal_before_fallback() -> None:
+    response = request("POST", "/incidents", json={"proposed_action": "ISOLATE_HOST"})
+    assert response.status_code == 200
+    body = response.json()
+    assert body["proposed_action"] == "ISOLATE_HOST"
+    assert body["selected_action"] == "DISABLE_ACCOUNT"
+    rejected = [event for event in body["timeline"] if event["state"] == "POLICY_REJECTED"]
+    assert rejected[0]["policy"]["code"] == "USER_IMPACT_EXCEEDED"
+
+
+def test_incident_report_is_retrievable_with_timeline() -> None:
+    created = request("POST", "/incidents", json={}).json()
+    incident_id = created["incident_id"]
+    assert request("GET", f"/incidents/{incident_id}").status_code == 200
+    timeline = request("GET", f"/incidents/{incident_id}/timeline")
+    assert timeline.status_code == 200
+    assert timeline.json()[0]["state"] == "DETECTED"
+    assert request("GET", "/incidents/does-not-exist").status_code == 404
+
+
+def test_model_configuration_never_exposes_credentials(monkeypatch) -> None:
+    monkeypatch.setenv("NEBIUS_API_KEY", "top-secret")
+    monkeypatch.setenv("NEBIUS_MODEL", "nvidia/test-nemotron")
+    body = request("GET", "/config/model").json()
+    assert body["configured"] is True
+    assert "top-secret" not in str(body)
+
+
+def test_dashboard_and_experiments_are_available() -> None:
+    dashboard = request("GET", "/")
+    assert dashboard.status_code == 200
+    assert "Sentinel" in dashboard.text
+    experiments = request("GET", "/experiments")
+    assert experiments.status_code == 200
+    assert any(row["method"] == "retry-then-fallback-default" for row in experiments.json())

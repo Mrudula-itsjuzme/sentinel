@@ -78,6 +78,14 @@ def test_reasoner_rejects_wrong_target() -> None:
     assert error.value.code == "UNSUPPORTED_TARGET"
 
 
+def test_reasoner_rejects_action_outside_frozen_model_catalog() -> None:
+    payload = valid_proposal()
+    payload["interventions"][0]["action"] = "REVOKE_SESSION"
+    with pytest.raises(UnsafeModelOutput) as error:
+        run_reasoner(FakeProvider(payload))
+    assert error.value.code == "UNSUPPORTED_TARGET"
+
+
 def test_reasoner_rejects_malformed_or_extra_fields() -> None:
     malformed = valid_proposal()
     malformed["authorization"] = "ALLOW"
