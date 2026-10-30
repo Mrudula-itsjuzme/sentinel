@@ -59,6 +59,14 @@ sidebarLinks.forEach(link => link.addEventListener('click', event => {
   renderRoute(route);
 }));
 
+document.querySelectorAll('[data-route-link]').forEach(button => button.addEventListener('click', event => {
+  const route = button.dataset.routeLink;
+  if (!productRoutes[route]) return;
+  event.preventDefault();
+  history.pushState({route}, '', `#${route}`);
+  renderRoute(route);
+}));
+
 window.addEventListener('popstate', () => renderRoute(window.location.hash));
 window.addEventListener('hashchange', () => renderRoute(window.location.hash));
 

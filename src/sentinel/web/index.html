@@ -47,6 +47,23 @@
 
     <main>
       <div id="route-heading" class="route-heading" aria-live="polite"></div>
+      <section id="overview-page" class="overview-page" aria-labelledby="overview-title">
+        <div class="overview-intro">
+          <div><span class="eyebrow">OPERATIONS</span><h1 id="overview-title">Security response overview</h1><p>Monitor active incidents, simulation safety, and policy-gated outcomes from one workspace.</p></div>
+          <button class="overview-primary" data-route-link="incidents">Open incident workspace <span>→</span></button>
+        </div>
+        <div class="overview-stats">
+          <article><span>Open incidents</span><strong>1</strong><small>1 requires response</small></article>
+          <article><span>Simulation status</span><strong class="stat-safe">Ready</strong><small>Isolated world clone</small></article>
+          <article><span>Policy posture</span><strong>Guarded</strong><small>Execution is gated</small></article>
+          <article><span>Production changes</span><strong class="stat-safe">None</strong><small>Safe by default</small></article>
+        </div>
+        <section class="overview-incident">
+          <header><div><span class="eyebrow">ACTIVE INCIDENT</span><h2>Credential-backed lateral movement</h2><p>incident-lateral-001 · alice → workstation_a → internal_host → payroll</p></div><span class="severity">SEV-1</span></header>
+          <div class="overview-incident-body"><div><strong>Response is ready to simulate</strong><p>Review evidence, compare candidate actions in the digital twin, and execute only policy-approved simulation steps.</p></div><button class="overview-secondary" data-route-link="incidents">Review incident <span>→</span></button></div>
+        </section>
+        <div class="overview-columns"><section><header><h2>Response workflow</h2><span>Operator path</span></header><ol class="overview-flow"><li class="done"><b>01</b><div><strong>Incident detected</strong><small>Evidence package available</small></div></li><li><b>02</b><div><strong>Simulate response</strong><small>Digital twin is ready</small></div></li><li><b>03</b><div><strong>Authorize safely</strong><small>Policy engine decides</small></div></li><li><b>04</b><div><strong>Verify outcome</strong><small>Audit record preserved</small></div></li></ol></section><section><header><h2>Environment</h2><span>Safety boundary</span></header><div class="overview-environment"><strong><i></i>Simulation environment</strong><p>No production changes are possible from this workspace.</p><dl><div><dt>Model inference</dt><dd>Explicit opt-in</dd></div><div><dt>Execution</dt><dd>Deterministic clone</dd></div><div><dt>Policy authority</dt><dd>Controller rules</dd></div></dl></div></section></div>
+      </section>
       <section class="incident-header">
         <div class="incident-title">
           <div><span class="incident-id">INCIDENT-LATERAL-001</span><span class="severity">SEV-1</span><span id="header-status" class="status active">READY</span></div>
