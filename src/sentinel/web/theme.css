@@ -115,6 +115,39 @@ td small { color: #7d898c; }
   .topbar { position: static; }
 }
 
+/* Alternate incident composition: masthead + operator workspace + context rail. */
+@media (min-width: 981px) {
+  .incident-header {
+    margin-top: 20px;
+    padding: 25px 25px 22px;
+    border: 1px solid #d7e1e6;
+    border-radius: 9px 9px 0 0;
+    background: #fff;
+    box-shadow: 0 2px 8px rgb(23 48 63 / 4%);
+  }
+  .incident-header + .tabs {
+    padding-inline: 22px;
+    border: 1px solid #d7e1e6;
+    border-top: 0;
+    background: #fff;
+  }
+  .workflow-rail { margin-top: 14px; }
+  .workspace-grid { grid-template-columns: minmax(0, 1.55fr) minmax(285px, .7fr); align-items: start; }
+  .right-column { position: sticky; top: 68px; }
+  .candidates table { min-width: 0; }
+  .candidates th, .candidates td { padding-inline: 10px; }
+  .execution-body { grid-template-columns: 1fr; }
+  .execution .outcomes { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 981px) and (max-width: 1160px) {
+  main { padding-inline: 22px; }
+  .workspace-grid { grid-template-columns: minmax(0, 1.45fr) 270px; }
+  .incident-header { padding-inline: 20px; }
+  .run-area button { padding-inline: 12px; }
+  .candidates th, .candidates td { font-size: 10px; }
+}
+
 .crumbs { color: #716d65; }
 .crumbs b { color: #a39c90; }
 .crumbs strong { color: #18232d; }
