@@ -21,13 +21,13 @@ flowchart LR
   V -->|failed| F[Retry, fallback, or escalate]
 ```
 
-The dashboard runs the complete product loop: detect a lateral-movement incident, collect four observations, reason locally or with NVIDIA Nemotron, simulate candidates, enforce policy, apply the authorized action to an isolated clone, verify reachability and payroll availability, and retain a structured timeline.
+The interactive dashboard runs the complete product loop: detect a lateral-movement incident, inspect four observations and affected assets, reason locally or with NVIDIA Nemotron, compare every candidate in a digital twin, enforce policy, apply the authorized action to an isolated clone, verify reachability and payroll availability, and retain a structured timeline and execution receipt.
 
 ## Nebius + NVIDIA
 
 `POST /reason` and the optional live path in `POST /incidents` call a configured NVIDIA Nemotron model through Nebius Token Factory's OpenAI-compatible chat-completions API. Sentinel requests strict JSON-schema output, then validates the incident ID, evidence references, action, and target locally. The response records the provider, model, request ID, latency, and token usage when Nebius returns it. No value is fabricated when usage is absent.
 
-Set `NEBIUS_API_KEY` and a current NVIDIA Nemotron model ID in `NEBIUS_MODEL`. Without credentials, the full local demo still runs and explicitly labels its deterministic reasoning fallback. Credentials are never returned by `/config/model`.
+Set `NEBIUS_API_KEY` and a current NVIDIA Nemotron model ID in `NEBIUS_MODEL`. Without credentials, the full local demo still runs and explicitly says that no AI inference occurred. Credentials are never returned by `/config/model`. See [the integration contract](docs/NVIDIA_NEBIUS_INTEGRATION.md) for the exact request, validation, provenance, and current verification boundary.
 
 ## Safety
 
@@ -54,7 +54,7 @@ uv sync --extra dev
 uv run uvicorn sentinel.main:app --reload
 ```
 
-Open `http://127.0.0.1:8000`, click **Run recovery**, then click **Show policy block**. The complete 2–3 minute script is in [docs/DEMO.md](docs/DEMO.md). OpenAPI is available at `/docs`.
+Open `http://127.0.0.1:8000`, click **Run response**, then click **Test unsafe proposal**. The [three-minute narrated script](docs/DEMO.md) and [Devpost checklist](docs/DEVPOST_CHECKLIST.md) cover the complete judging flow. OpenAPI is available at `/docs`.
 
 ## API
 
@@ -79,6 +79,8 @@ uv sync --extra dev
 cp .env.example .env  # optional; export values before startup
 uv run uvicorn sentinel.main:app --host 127.0.0.1 --port 8000
 ```
+
+The application reads process environment variables; it does not load `.env` itself. Export the values or use Docker Compose.
 
 For a credential-free smoke test:
 
@@ -130,6 +132,10 @@ The image runs as a non-root user, exposes port 8000, and includes a `/health` h
 - The product demo uses one lateral-movement scenario and an in-memory incident store.
 - Execution is simulated only; there is no production infrastructure adapter.
 - The bounded oracle has privileged hidden state and cannot be compared as a deployable controller.
+
+## License
+
+Sentinel is available under the [MIT License](LICENSE). NVIDIA model weights and hosted services retain their own terms.
 
 ## Future work
 

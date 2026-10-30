@@ -3,54 +3,155 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sentinel · Policy-gated incident response</title>
+  <meta name="description" content="Sentinel policy-gated simulated incident response">
+  <title>Sentinel · Incident workspace</title>
   <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/mobile.css">
+  <link rel="stylesheet" href="/assets/theme.css">
 </head>
 <body>
-  <header>
-    <div><p class="eyebrow">Reliability control plane</p><h1>Sentinel</h1></div>
-    <div class="system-state"><span class="pulse"></span><span>Simulator ready</span><small id="model-state">Checking model…</small></div>
-  </header>
-  <main>
-    <section class="hero panel">
-      <div><p class="eyebrow">Current scenario</p><h2>Credential-backed lateral movement</h2><p>AI proposes. Deterministic policy authorizes. The simulator executes. Independent state checks verify recovery.</p></div>
-      <div class="controls">
-        <label><input id="live-model" type="checkbox"> Use live Nebius + NVIDIA reasoning</label>
-        <button id="run-safe">Run recovery</button>
-        <button id="run-block" class="secondary">Show policy block</button>
-      </div>
-    </section>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.8 20h18.4L12 3Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6V3Z"/><path d="M14 3v5h4M9 13h6M9 17h6"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5A3.5 3.5 0 0 1 7.5 1H11v18H7.5A3.5 3.5 0 0 0 4 22.5v-18ZM20 4.5A3.5 3.5 0 0 0 16.5 1H13v18h3.5a3.5 3.5 0 0 1 3.5 3.5v-18Z"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.1A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.1A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.1A1.7 1.7 0 0 0 15.4 4a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 8.4a1.7 1.7 0 0 0 .6 1 1.7 1.7 0 0 0 1.1.4h.1v4h-.1a1.7 1.7 0 0 0-1.7 1.2Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  </svg>
 
-    <section class="metrics" aria-label="Incident metrics">
-      <article><span>Status</span><strong id="status">READY</strong></article>
-      <article><span>Evidence</span><strong id="evidence-count">4 signals</strong></article>
-      <article><span>Attack paths</span><strong id="paths">1 → —</strong></article>
-      <article><span>Payroll</span><strong id="payroll">Protected</strong></article>
-    </section>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Sentinel home"><span>S</span><strong>Sentinel</strong></a>
+    <nav aria-label="Product navigation">
+      <a href="#"><svg><use href="#i-grid"/></svg><span>Overview</span></a>
+      <a class="active" href="#workspace"><svg><use href="#i-alert"/></svg><span>Incidents</span><b>1</b></a>
+      <a href="#twin"><svg><use href="#i-play"/></svg><span>Simulations</span></a>
+      <a href="#policy"><svg><use href="#i-file"/></svg><span>Policies</span></a>
+      <a href="#audit"><svg><use href="#i-list"/></svg><span>Audit log</span></a>
+    </nav>
+    <nav class="sidebar-bottom" aria-label="Secondary navigation">
+      <a href="#research"><svg><use href="#i-book"/></svg><span>Research</span></a>
+      <a href="/docs"><svg><use href="#i-settings"/></svg><span>API & settings</span></a>
+    </nav>
+  </aside>
 
-    <section class="grid">
-      <article class="panel decision">
-        <p class="eyebrow">Decision record</p><h2>Reason → policy → action</h2>
-        <dl>
-          <dt>Diagnosis</dt><dd id="diagnosis">Run an incident to populate the decision record.</dd>
-          <dt>Proposed</dt><dd id="proposed">—</dd>
-          <dt>Policy</dt><dd id="policy">—</dd>
-          <dt>Selected</dt><dd id="selected">—</dd>
-          <dt>Verification</dt><dd id="verification">—</dd>
-        </dl>
-      </article>
-      <article class="panel">
-        <p class="eyebrow">Audit trail</p><h2>Incident timeline</h2>
-        <ol id="timeline" class="timeline"><li><span></span><div><strong>Waiting for incident</strong><p>No action has been taken.</p></div></li></ol>
-      </article>
-    </section>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="crumbs"><span>Incidents</span><b>/</b><strong>incident-lateral-001</strong></div>
+      <div class="environment"><span>Simulation environment</span><small>No production changes</small></div>
+      <div class="provider"><span>Reasoning</span><strong id="model-state">Checking configuration…</strong></div>
+      <a href="/docs">API docs ↗</a>
+    </header>
 
-    <section class="panel research">
-      <div><p class="eyebrow">Sealed research</p><h2>Complexity did not erase the baseline</h2><p>Fresh seeded scenarios. Zero policy violations. The bounded oracle is diagnostic—not product performance.</p></div>
-      <div id="experiment-bars" class="bars"></div>
-    </section>
-  </main>
-  <footer>Deterministic simulator · explicit policy · simulated execution only · <a href="/docs">OpenAPI</a></footer>
+    <main>
+      <section class="incident-header">
+        <div class="incident-title">
+          <div><span class="incident-id">INCIDENT-LATERAL-001</span><span class="severity">SEV-1</span><span id="header-status" class="status active">READY</span></div>
+          <h1>Credential-backed lateral movement</h1>
+          <p class="asset-path"><span>alice</span><b>›</b><span>workstation_a</span><b>›</b><span>internal_host</span><b>›</b><span>payroll</span></p>
+        </div>
+        <div class="run-area">
+          <label><input id="live-model" type="checkbox"> Use live Nebius + NVIDIA</label>
+          <div><button id="run-safe"><svg><use href="#i-play"/></svg>Run response</button><button id="run-block" class="secondary">Test unsafe proposal</button></div>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Incident views">
+        <button class="tab active" data-tab="workspace">Response workspace</button>
+        <button class="tab" data-tab="evidence">Evidence <span>4</span></button>
+        <button class="tab" data-tab="twin">Digital twin</button>
+        <button class="tab" data-tab="audit">Audit</button>
+      </nav>
+
+      <div id="notice" class="notice" role="status"><span></span><p><strong>Ready to simulate</strong>No inference or response action has occurred.</p></div>
+
+      <section id="workspace" class="tab-panel active" data-panel="workspace">
+        <div class="workspace-grid">
+          <div class="main-column">
+            <section class="surface evidence-summary">
+              <header><h2>Evidence summary</h2><button class="text-button" data-open-tab="evidence">View details</button></header>
+              <div class="summary-metrics">
+                <div><strong id="evidence-count">4</strong><span>Observed signals</span></div>
+                <div><strong>2</strong><span>Affected identities</span></div>
+                <div><strong>1</strong><span>Active attack path</span></div>
+                <div><strong>1</strong><span>Critical dependency</span><small>Payroll</small></div>
+              </div>
+            </section>
+
+            <section class="surface candidates">
+              <header><div><h2>Candidate response actions</h2><span id="reasoning-badge" class="reasoning-badge">Deterministic fallback</span></div><small>Predicted in the digital twin</small></header>
+              <p id="diagnosis" class="diagnosis">Run the incident to populate an evidence-grounded proposal. No inference has occurred.</p>
+              <div class="table-scroll">
+                <table>
+                  <thead><tr><th>Action</th><th>Target</th><th>Security outcome</th><th>Business impact</th><th>Policy</th></tr></thead>
+                  <tbody id="candidate-rows"><tr><td colspan="5" class="empty">No candidate simulation yet.</td></tr></tbody>
+                </table>
+              </div>
+            </section>
+
+            <section id="execution" class="surface execution">
+              <header><div><h2>Execution and verification</h2><span>Isolated deterministic world clone</span></div><strong id="verified-state" class="status neutral">NOT RUN</strong></header>
+              <div class="execution-body">
+                <ol class="execution-steps">
+                  <li><i><svg><use href="#i-check"/></svg></i><div><strong>Execute approved action</strong><span id="receipt-action">Awaiting authorization</span></div></li>
+                  <li><i><svg><use href="#i-check"/></svg></i><div><strong>Recompute attack paths</strong><span>Independent graph verification</span></div></li>
+                  <li><i><svg><use href="#i-check"/></svg></i><div><strong>Confirm payroll availability</strong><span>Critical dependency check</span></div></li>
+                </ol>
+                <dl class="receipt">
+                  <div><dt>Target</dt><dd id="receipt-target">—</dd></div>
+                  <div><dt>Execution mode</dt><dd>Simulation</dd></div>
+                  <div><dt>Production changes</dt><dd class="good">None</dd></div>
+                  <div><dt>Result</dt><dd id="execution-state">Not run</dd></div>
+                </dl>
+                <div class="outcomes">
+                  <article><span>Attack paths</span><p><strong>1</strong><b>→</b><strong id="verify-paths">—</strong></p><small>Before / after</small></article>
+                  <article><span>Payroll service</span><p id="verify-payroll">—</p><small>Required to recover</small></article>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <aside class="right-column">
+            <section id="policy" class="surface policy-inspector">
+              <header><h2>Policy decision</h2><strong id="policy-state" class="decision waiting">WAITING</strong></header>
+              <div class="selected-action"><span>Proposed action</span><strong id="proposed-action">—</strong><small id="policy-reason">Run a response to evaluate deterministic policy.</small></div>
+              <dl class="policy-rules"><div><dt>Action allowlisted</dt><dd id="rule-action">—</dd></div><div><dt>User impact ≤ 1</dt><dd id="rule-users">—</dd></div><div><dt>Payroll remains available</dt><dd id="rule-payroll">—</dd></div><div><dt>Simulation completed</dt><dd id="rule-simulation">—</dd></div></dl>
+              <p class="policy-boundary">Model proposals cannot change these rules or authorize execution.</p>
+            </section>
+
+            <section id="audit" class="surface recent-events">
+              <header><h2>Recent events</h2><button class="text-button" data-open-tab="audit">View all</button></header>
+              <ol id="timeline-compact"><li><i></i><div><strong>Waiting for incident</strong><p>No activity recorded.</p></div></li></ol>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section class="tab-panel detail-panel" data-panel="evidence">
+        <header><div><h2>Observed evidence</h2><p>Only these observations are available to the reasoning boundary.</p></div><strong id="evidence-panel-count">4 signals</strong></header>
+        <div id="evidence-list" class="evidence-list"><p class="empty">Run a response to load evidence.</p></div>
+      </section>
+
+      <section id="twin" class="tab-panel detail-panel" data-panel="twin">
+        <header><div><h2>Digital-twin comparison</h2><p>Deterministic predictions in a synthetic environment—not production outcomes.</p></div><strong>Simulation only</strong></header>
+        <div class="table-scroll"><table class="twin-table"><thead><tr><th>Action</th><th>Attack stopped</th><th>Paths remaining</th><th>Users impacted</th><th>Downtime</th><th>Payroll</th></tr></thead><tbody id="twin-rows"><tr><td colspan="6" class="empty">Run a response to compare outcomes.</td></tr></tbody></table></div>
+      </section>
+
+      <section class="tab-panel detail-panel" data-panel="audit">
+        <header><div><h2>Complete audit log</h2><p>Inference provenance, policy decisions, execution, and verification in order.</p></div><strong id="event-count">0 events</strong></header>
+        <ol id="timeline-full" class="timeline-full"><li><i></i><div><strong>Waiting for incident</strong><p>Nothing has been inferred, authorized, or executed.</p></div></li></ol>
+      </section>
+
+      <details id="research" class="research">
+        <summary><span><strong>Frozen research evidence</strong><small>Checked-in synthetic controller results and limitations</small></span><span>View</span></summary>
+        <p>Seeded synthetic experiments—not real-world security performance. The bounded oracle uses hidden execution state and is not deployable.</p>
+        <div id="experiment-bars" class="bars"></div>
+      </details>
+    </main>
+  </div>
+
   <script src="/assets/app.js"></script>
 </body>
 </html>

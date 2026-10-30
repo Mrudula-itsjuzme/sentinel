@@ -91,6 +91,9 @@ def test_incident_loop_recovers_with_policy_authorized_action() -> None:
     assert body["status"] == "RECOVERED"
     assert body["selected_action"] == "DISABLE_ACCOUNT"
     assert body["execution_mode"] == "DETERMINISTIC_SIMULATION"
+    assert body["execution_receipt"]["production_changes"] is False
+    assert len(body["candidate_assessments"]) == 3
+    assert any(item["selected"] for item in body["candidate_assessments"])
     assert body["verification"]["attack_paths_remaining"] == 0
     assert body["verification"]["payroll_available"] is True
     assert body["model_call"]["fallback_used"] is True
@@ -105,6 +108,8 @@ def test_incident_loop_blocks_unsafe_proposal_before_fallback() -> None:
     assert body["selected_action"] == "DISABLE_ACCOUNT"
     rejected = [event for event in body["timeline"] if event["state"] == "POLICY_REJECTED"]
     assert rejected[0]["policy"]["code"] == "USER_IMPACT_EXCEEDED"
+    isolation = next(item for item in body["candidate_assessments"] if item["simulation"]["action"] == "ISOLATE_HOST")
+    assert isolation["policy"]["decision"] == "DENY"
 
 
 def test_incident_report_is_retrievable_with_timeline() -> None:

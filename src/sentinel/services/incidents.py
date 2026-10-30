@@ -72,6 +72,25 @@ class ModelCallMetadata(BaseModel):
     fallback_used: bool = False
 
 
+class CandidateAssessment(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    simulation: SimulationResult
+    policy: PolicyResult
+    proposed: bool
+    selected: bool
+
+
+class ExecutionReceipt(BaseModel):
+    model_config = ConfigDict(extra="forbid", frozen=True)
+
+    mode: str
+    action: str | None
+    target: str | None
+    result: str
+    production_changes: bool = False
+
+
 class TimelineEvent(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
@@ -104,7 +123,9 @@ class IncidentReport(BaseModel):
     selected_target: str | None
     policy_result: PolicyResult
     candidate_results: tuple[SimulationResult, ...]
+    candidate_assessments: tuple[CandidateAssessment, ...]
     execution_mode: str
+    execution_receipt: ExecutionReceipt
     action_result: str
     verification: dict[str, Any]
     timeline: tuple[TimelineEvent, ...]
@@ -231,7 +252,22 @@ async def run_incident(request: IncidentRunRequest) -> IncidentReport:
         selected_target=selected_target,
         policy_result=policy_result,
         candidate_results=candidates,
+        candidate_assessments=tuple(
+            CandidateAssessment(
+                simulation=candidate,
+                policy=evaluate_policy(candidate),
+                proposed=candidate.action == proposed_action.value,
+                selected=candidate.action == (selected_action.value if selected_action else None),
+            )
+            for candidate in candidates
+        ),
         execution_mode="DETERMINISTIC_SIMULATION",
+        execution_receipt=ExecutionReceipt(
+            mode="DETERMINISTIC_SIMULATION",
+            action=selected_action.value if selected_action else None,
+            target=selected_target,
+            result=action_result,
+        ),
         action_result=action_result,
         verification=verification,
         timeline=tuple(timeline),

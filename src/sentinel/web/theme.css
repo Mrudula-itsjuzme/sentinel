@@ -1,0 +1,36 @@
+.topbar {
+  grid-template-columns: minmax(260px, 1fr) auto minmax(210px, auto) auto;
+  background: #f2eee4;
+  border-bottom-color: #d8d0c1;
+  color: #18232d;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 4%);
+}
+
+.crumbs { color: #716d65; }
+.crumbs b { color: #a39c90; }
+.crumbs strong { color: #18232d; }
+
+.environment {
+  border-color: #d7cba9;
+  background: #ece4ce;
+}
+.environment span {
+  background: transparent;
+  color: #7b5b09;
+}
+.environment small {
+  background: transparent;
+  color: #746c5d;
+  border-left: 1px solid #d7cba9;
+}
+
+.provider { border-left-color: #d8d0c1; }
+.provider span { color: #847f75; }
+.provider strong { color: #28343e; }
+.topbar > a { color: #335f87; }
+
+@media (max-width: 760px) {
+  .topbar { grid-template-columns: 1fr; }
+  .crumbs { justify-content: center; }
+  .environment { grid-column: 1; }
+}
