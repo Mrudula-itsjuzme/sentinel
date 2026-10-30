@@ -354,3 +354,70 @@ tbody tr:hover td { background: #f7fafb; }
 .workflow-rail li { border-right-color: #ebe8e1; }
 .workflow-rail .current { background: #f1f7fb; }
 .empty-icon { background: #edf5f9; }
+
+/* Contemporary console refresh. Keep the warm brand note only in the chrome;
+   the workspace itself stays neutral so state color carries the meaning. */
+:root { font-family: Inter, "SF Pro Display", "Segoe UI", system-ui, sans-serif; }
+body { background: #f5f7f9; color: #172b36; }
+.sidebar { background: #ffffff; border-bottom-color: #dce4e9; box-shadow: 0 1px 0 rgb(20 42 55 / 3%); }
+.brand { height: 60px; width: 164px; border-right-color: #e3e9ed; font-size: 19px; }
+.brand > span { width: 29px; height: 29px; border-radius: 8px; background: #147ac2; }
+.sidebar nav { gap: 2px; padding-inline: 14px; }
+.sidebar nav a { min-height: 36px; color: #647680; font-size: 12px; }
+.sidebar nav a.active { background: #eaf4fb; color: #12689f; box-shadow: inset 0 -2px #248fd0; }
+.sidebar-bottom { padding-right: 10px; }
+.topbar { min-height: 50px; height: 50px; background: #fbfcfd; border-bottom-color: #dce4e9; padding-inline: 28px; }
+.crumbs { font-size: 12px; color: #72828a; }
+.crumbs strong { color: #213741; }
+.environment { font-size: 11px; }
+.environment span { color: #875c06; font-weight: 750; }
+.environment span::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: #d79e1d; vertical-align: 1px; }
+.environment small { color: #617880; border-left-color: #c9d5da; }
+main { max-width: 1440px; padding-inline: 30px; }
+.incident-header { padding: 30px 0 22px; border-bottom-color: #d8e1e6; }
+.incident-id { color: #71848d; font-size: 10px; }
+h1 { color: #152d3a; font-size: clamp(30px, 3vw, 40px); font-weight: 760; letter-spacing: -.052em; }
+.asset-path { color: #78909b; }
+.asset-path b { color: #b5c3c9; }
+.run-area > div { gap: 9px; }
+.run-area button { height: 40px; border-radius: 6px; font-size: 13px; }
+.run-area button.secondary { background: #193b50; }
+.tabs { gap: 28px; border-bottom-color: #d5e0e5; }
+.tab { padding: 14px 2px; font-size: 13px; }
+.tab.active:after { height: 3px; }
+.workflow-rail { margin-bottom: 18px; border-color: #d7e1e6; background: #ffffff; box-shadow: 0 2px 7px rgb(24 49 62 / 4%); }
+.workflow-rail li { padding: 11px 15px; border-right-color: #e6edf0; }
+.workflow-rail strong { color: #354e5a; font-size: 11px; }
+.workflow-rail small { color: #83939b; font-size: 9px; }
+.workflow-rail .current { background: #eef7fc; }
+.notice { margin: 14px 0 16px; min-height: 46px; background: #ffffff; border-color: #d7e1e6; }
+.workspace-grid, .main-column, .right-column { gap: 14px; }
+.surface, .detail-panel, .research { border-radius: 7px; background: #ffffff; border-color: #d7e1e6; box-shadow: 0 2px 8px rgb(23 48 63 / 4%); }
+.surface > header { min-height: 52px; padding-inline: 17px; }
+.surface h2, .detail-panel h2 { color: #1c3440; font-size: 15px; letter-spacing: -.018em; }
+.summary-metrics { padding: 16px 0; }
+.summary-metrics > div { padding-inline: 19px; border-right-color: #e1e9ed; }
+.summary-metrics strong { color: #183746; font-size: 24px; }
+.summary-metrics span, .summary-metrics small { color: #72848c; font-size: 10px; }
+.candidates .reasoning-badge { border-radius: 4px; }
+.diagnosis { background: #f7f9fa; color: #60747e; font-size: 12px; }
+th { background: #f4f7f8; color: #637780; font-size: 9px; }
+td { color: #334b57; font-size: 11px; }
+td small { color: #7b8c94; font-size: 10px; }
+.empty-state strong { font-size: 12px; }
+.execution-body { padding: 17px; }
+.execution-steps strong { font-size: 11px; }
+.execution-steps span { color: #78909a; font-size: 10px; }
+.receipt, .outcomes article, .selected-action { background: #f7f9fa; border-color: #dce5e9; }
+.policy-inspector header strong { letter-spacing: .03em; }
+.recent-events ol { padding: 13px 16px; }
+.recent-events strong { font-size: 10px; }
+.recent-events p { color: #7d8d94; font-size: 9px; }
+tbody tr { transition: background .15s ease; }
+
+@media (max-width: 760px) {
+  main { padding-inline: 16px; }
+  .incident-header { padding-top: 22px; }
+  h1 { font-size: 28px; }
+  .topbar { padding-inline: 16px; }
+}

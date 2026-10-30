@@ -8,7 +8,33 @@ function openTab(name) {
 
 document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => openTab(tab.dataset.tab)));
 document.querySelectorAll('[data-open-tab]').forEach(button => button.addEventListener('click', () => openTab(button.dataset.openTab)));
-document.querySelectorAll('[data-run-response]').forEach(button => button.addEventListener('click', () => run(null)));
+
+// Keep the global product navigation connected to the incident workspace.
+// These are intentionally local view changes; no navigation or data mutation
+// happens until the analyst presses an explicit response action.
+const navViews = {
+  '#': 'workspace',
+  '#workspace': 'workspace',
+  '#twin': 'twin',
+  '#audit': 'audit',
+  '#policy': 'workspace',
+  '#research': 'workspace'
+};
+document.querySelectorAll('.sidebar a[href^="#"]').forEach(link => link.addEventListener('click', event => {
+  const target = link.getAttribute('href');
+  const tab = navViews[target];
+  if (!tab) return;
+  event.preventDefault();
+  openTab(tab);
+  const targetId = target === '#policy' ? 'policy' : target === '#research' ? 'research' : null;
+  if (targetId) document.getElementById(targetId)?.scrollIntoView({behavior: 'smooth', block: 'start'});
+}));
+
+// The empty-state CTA is rendered in the initial HTML and can be replaced by
+// a response table, so use delegation for a stable interaction path.
+document.addEventListener('click', event => {
+  if (event.target.closest('[data-run-response]')) run(null);
+});
 
 async function loadConfig() {
   const config = await fetch('/config/model').then(response => response.json());
