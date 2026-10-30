@@ -6,6 +6,15 @@ function openTab(name) {
   document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.toggle('active', panel.dataset.panel === name));
 }
 
+function setProductTab(link) {
+  document.querySelectorAll('.sidebar nav a').forEach(item => {
+    const selected = item === link;
+    item.classList.toggle('active', selected);
+    if (selected) item.setAttribute('aria-current', 'page');
+    else item.removeAttribute('aria-current');
+  });
+}
+
 document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => openTab(tab.dataset.tab)));
 document.querySelectorAll('[data-open-tab]').forEach(button => button.addEventListener('click', () => openTab(button.dataset.openTab)));
 
@@ -25,6 +34,7 @@ document.querySelectorAll('.sidebar a[href^="#"]').forEach(link => link.addEvent
   const tab = navViews[target];
   if (!tab) return;
   event.preventDefault();
+  setProductTab(link);
   openTab(tab);
   const targetId = target === '#policy' ? 'policy' : target === '#research' ? 'research' : null;
   if (targetId) document.getElementById(targetId)?.scrollIntoView({behavior: 'smooth', block: 'start'});
