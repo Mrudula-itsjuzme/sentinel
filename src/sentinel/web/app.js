@@ -1,9 +1,10 @@
 const $ = id => document.getElementById(id);
 const label = value => value ? String(value).replaceAll('_', ' ') : '—';
 
-function openTab(name) {
+function openTab(name, {syncUrl = true} = {}) {
   document.querySelectorAll('.tab').forEach(tab => tab.classList.toggle('active', tab.dataset.tab === name));
   document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.toggle('active', panel.dataset.panel === name));
+  if (syncUrl) history.replaceState({view: name}, '', `#view/${name}`);
 }
 
 function setProductTab(link) {
@@ -21,24 +22,40 @@ document.querySelectorAll('[data-open-tab]').forEach(button => button.addEventLi
 // Keep the global product navigation connected to the incident workspace.
 // These are intentionally local view changes; no navigation or data mutation
 // happens until the analyst presses an explicit response action.
-const navViews = {
-  '#': 'workspace',
-  '#workspace': 'workspace',
-  '#twin': 'twin',
-  '#audit': 'audit',
-  '#policy': 'workspace',
-  '#research': 'workspace'
+const productRoutes = {
+  overview: {view: 'workspace'},
+  incidents: {view: 'workspace'},
+  simulations: {view: 'twin'},
+  policies: {view: 'workspace', focus: 'policy'},
+  'audit-log': {view: 'audit'},
+  research: {view: 'workspace', focus: 'research'}
 };
-document.querySelectorAll('.sidebar a[href^="#"]').forEach(link => link.addEventListener('click', event => {
-  const target = link.getAttribute('href');
-  const tab = navViews[target];
-  if (!tab) return;
+const sidebarLinks = [...document.querySelectorAll('.sidebar a[href^="#"]')];
+function renderRoute(route, {replace = false} = {}) {
+  const clean = route.replace(/^#\/?/, '');
+  if (clean.startsWith('view/')) {
+    openTab(clean.slice(5), {syncUrl: false});
+    return;
+  }
+  const config = productRoutes[clean] || productRoutes.incidents;
+  const link = sidebarLinks.find(item => item.getAttribute('href') === `#${clean}`);
+  if (link) setProductTab(link);
+  openTab(config.view, {syncUrl: false});
+  if (replace) history.replaceState({route: clean}, '', `#${clean}`);
+  const target = config.focus && document.getElementById(config.focus);
+  if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+sidebarLinks.forEach(link => link.addEventListener('click', event => {
+  const route = link.getAttribute('href').slice(1);
+  if (!productRoutes[route]) return;
   event.preventDefault();
-  setProductTab(link);
-  openTab(tab);
-  const targetId = target === '#policy' ? 'policy' : target === '#research' ? 'research' : null;
-  if (targetId) document.getElementById(targetId)?.scrollIntoView({behavior: 'smooth', block: 'start'});
+  history.pushState({route}, '', `#${route}`);
+  renderRoute(route);
 }));
+
+window.addEventListener('popstate', () => renderRoute(window.location.hash));
+window.addEventListener('hashchange', () => renderRoute(window.location.hash));
 
 // The empty-state CTA is rendered in the initial HTML and can be replaced by
 // a response table, so use delegation for a stable interaction path.
@@ -161,5 +178,6 @@ async function run(proposedAction) {
 
 $('run-safe').addEventListener('click', () => run(null));
 $('run-block').addEventListener('click', () => run('ISOLATE_HOST'));
+renderRoute(window.location.hash || '#incidents', {replace: !window.location.hash});
 loadConfig();
 loadExperiments();
