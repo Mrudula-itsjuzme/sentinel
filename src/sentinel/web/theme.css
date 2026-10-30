@@ -300,3 +300,57 @@ td small { font-size: 11px; }
   .environment { grid-column: 1; }
   .topbar > a { display: none; }
 }
+
+/* Final product polish: calm neutral foundation, crisp controls, restrained depth. */
+body { background: #f4f2ed; color: #182933; }
+.sidebar { background: #fffefa; border-bottom-color: #d9d6cf; }
+.brand { border-right-color: #e3e0d8; color: #182933; }
+.brand > span { background: #287fbd; box-shadow: 0 2px 5px rgb(33 105 158 / 18%); }
+.sidebar nav a { color: #617078; border-radius: 6px; }
+.sidebar nav a:hover { background: #f2f5f6; color: #1d3542; }
+.sidebar nav a.active { background: #edf5fa; color: #176698; box-shadow: inset 0 -2px #338fd0; }
+.sidebar nav b { background: #dcecf6; color: #176698; }
+.topbar { background: #fffefa; border-bottom-color: #ddd9d1; }
+.crumbs { color: #68767b; }
+.crumbs strong { color: #23343e; }
+main { max-width: 1500px; }
+.incident-header { border-bottom-color: #d9d6cf; }
+.incident-id { color: #718087; }
+.severity { background: #a52e3a; box-shadow: 0 1px 0 rgb(90 20 28 / 18%); }
+.status.active, .status.neutral { border-color: #9bb2c0; color: #416072; background: #f7fafb; }
+.status.recovered { background: #edf8f2; color: #16724d; border-color: #a9d8bf; }
+.run-area label { color: #718087; }
+.run-area button { box-shadow: 0 2px 5px rgb(24 102 154 / 14%); transition: background .16s ease, border-color .16s ease, transform .16s ease, box-shadow .16s ease; }
+.run-area button:hover { background: #2576c9; border-color: #2576c9; transform: translateY(-1px); }
+.run-area button.secondary { background: #203d50; border-color: #203d50; color: #f5fafc; box-shadow: 0 2px 5px rgb(25 51 67 / 12%); }
+.run-area button.secondary:hover { background: #294d63; border-color: #294d63; }
+.run-area button:focus-visible, .tab:focus-visible, .text-button:focus-visible, .empty-action:focus-visible { outline: 3px solid rgb(51 143 208 / 25%); outline-offset: 2px; }
+.tabs { border-bottom-color: #d4d8d7; }
+.tab { color: #6b787d; }
+.tab:hover { color: #1f6095; background: #fafcfb; }
+.tab.active { color: #176698; }
+.notice { background: #fbfcfb; border-color: #d6dedf; box-shadow: 0 1px 2px rgb(35 48 55 / 3%); }
+.notice strong { color: #2d444f; }
+.surface, .detail-panel, .research { background: #fffefa; border-color: #d9d6cf; box-shadow: 0 3px 10px rgb(45 42 34 / 4%); }
+.surface > header, .detail-panel > header { border-bottom-color: #e6e3dc; }
+.surface h2, .detail-panel h2 { color: #1f3039; }
+.summary-metrics > div { border-right-color: #e5e1d8; }
+.summary-metrics strong { color: #1e3440; }
+.diagnosis { background: #f7f7f3; border-bottom-color: #e7e3da; color: #52656d; }
+th { background: #f3f4f1; color: #607278; border-bottom: 1px solid #e2e0d9; }
+td { background: #fffefa; border-top-color: #eeece7; color: #2e424c; }
+tbody tr:hover td { background: #f7fafb; }
+.selected-row td { background: #edf6fb; }
+.selected-row:hover td { background: #e8f3fa; }
+.decision.allow { background: #edf8f2; border-color: #acd8c0; color: #16724d; }
+.decision.deny { background: #fff0f0; border-color: #e2adb1; color: #a12f39; }
+.decision.waiting { background: #f0f4f5; border-color: #c7d2d6; color: #60747d; }
+.execution-steps li:before { background: #b8d7c8; }
+.execution-steps i { background: #e8f7ef; color: #16825a; }
+.receipt, .outcomes article, .selected-action { background: #f8f8f4; border-color: #e1ded6; }
+.policy-rules div { border-bottom-color: #e8e5de; }
+.recent-events li:before, .timeline-full li:before { background: #bed1dc; }
+.workflow-rail { border-color: #d9d6cf; background: #fffefa; box-shadow: 0 2px 8px rgb(45 42 34 / 3%); }
+.workflow-rail li { border-right-color: #ebe8e1; }
+.workflow-rail .current { background: #f1f7fb; }
+.empty-icon { background: #edf5f9; }
