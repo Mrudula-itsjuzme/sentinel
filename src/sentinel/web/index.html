@@ -65,6 +65,13 @@
         <button class="tab" data-tab="audit">Audit</button>
       </nav>
 
+      <ol class="workflow-rail" aria-label="Incident response workflow">
+        <li class="current"><span>01</span><strong>Detect</strong><small>Incident received</small></li>
+        <li><span>02</span><strong>Simulate</strong><small>Compare actions</small></li>
+        <li><span>03</span><strong>Authorize</strong><small>Policy gate</small></li>
+        <li><span>04</span><strong>Verify</strong><small>Audit outcome</small></li>
+      </ol>
+
       <div id="notice" class="notice" role="status"><span></span><p><strong>Ready to simulate</strong>No inference or response action has occurred.</p></div>
 
       <section id="workspace" class="tab-panel active" data-panel="workspace">
@@ -86,7 +93,7 @@
               <div class="table-scroll">
                 <table>
                   <thead><tr><th>Action</th><th>Target</th><th>Security outcome</th><th>Business impact</th><th>Policy</th></tr></thead>
-                  <tbody id="candidate-rows"><tr><td colspan="5" class="empty">No candidate simulation yet.</td></tr></tbody>
+                  <tbody id="candidate-rows"><tr><td colspan="5" class="empty"><div class="empty-state"><span class="empty-icon"><svg><use href="#i-play"/></svg></span><strong>Ready to model a response</strong><p>Run the incident to generate evidence-grounded actions and compare their predicted impact.</p><button class="empty-action" data-run-response>Run response</button></div></td></tr></tbody>
                 </table>
               </div>
             </section>
@@ -98,6 +105,7 @@
                   <li><i><svg><use href="#i-check"/></svg></i><div><strong>Execute approved action</strong><span id="receipt-action">Awaiting authorization</span></div></li>
                   <li><i><svg><use href="#i-check"/></svg></i><div><strong>Recompute attack paths</strong><span>Independent graph verification</span></div></li>
                   <li><i><svg><use href="#i-check"/></svg></i><div><strong>Confirm payroll availability</strong><span>Critical dependency check</span></div></li>
+                  <li><i><svg><use href="#i-check"/></svg></i><div><strong>Write audit record</strong><span>Immutable decision trail</span></div></li>
                 </ol>
                 <dl class="receipt">
                   <div><dt>Target</dt><dd id="receipt-target">—</dd></div>

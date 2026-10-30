@@ -8,6 +8,7 @@ function openTab(name) {
 
 document.querySelectorAll('.tab').forEach(tab => tab.addEventListener('click', () => openTab(tab.dataset.tab)));
 document.querySelectorAll('[data-open-tab]').forEach(button => button.addEventListener('click', () => openTab(button.dataset.openTab)));
+document.querySelectorAll('[data-run-response]').forEach(button => button.addEventListener('click', () => run(null)));
 
 async function loadConfig() {
   const config = await fetch('/config/model').then(response => response.json());
