@@ -355,6 +355,47 @@ tbody tr:hover td { background: #f7fafb; }
 .workflow-rail .current { background: #f1f7fb; }
 .empty-icon { background: #edf5f9; }
 
+.route-heading {
+  padding: 28px 0 8px;
+  color: #173746;
+  font-size: 28px;
+  font-weight: 760;
+  letter-spacing: -.045em;
+}
+main[data-route="simulations"] .incident-header,
+main[data-route="simulations"] .tabs,
+main[data-route="simulations"] .workflow-rail,
+main[data-route="simulations"] #notice,
+main[data-route="simulations"] #workspace,
+main[data-route="simulations"] #research,
+main[data-route="audit-log"] .incident-header,
+main[data-route="audit-log"] .tabs,
+main[data-route="audit-log"] .workflow-rail,
+main[data-route="audit-log"] #notice,
+main[data-route="audit-log"] #workspace,
+main[data-route="audit-log"] #research,
+main[data-route="policies"] .incident-header,
+main[data-route="policies"] .tabs,
+main[data-route="policies"] .workflow-rail,
+main[data-route="policies"] #notice,
+main[data-route="policies"] #research,
+main[data-route="research"] .incident-header,
+main[data-route="research"] .tabs,
+main[data-route="research"] .workflow-rail,
+main[data-route="research"] #notice,
+main[data-route="research"] #workspace,
+main[data-route="research"] #twin,
+main[data-route="research"] #audit,
+main[data-route="research"] .detail-panel:not(#audit) { display: none; }
+main[data-route="simulations"] #twin,
+main[data-route="audit-log"] #audit,
+main[data-route="research"] #research { display: block; }
+main[data-route="policies"] #workspace { display: block; }
+main[data-route="policies"] #workspace .main-column,
+main[data-route="policies"] #workspace .recent-events { display: none; }
+main[data-route="policies"] #workspace .right-column { display: block; }
+main[data-route="policies"] #policy { display: block; }
+
 /* Contemporary console refresh. Keep the warm brand note only in the chrome;
    the workspace itself stays neutral so state color carries the meaning. */
 :root { font-family: Inter, "SF Pro Display", "Segoe UI", system-ui, sans-serif; }
@@ -420,4 +461,5 @@ tbody tr { transition: background .15s ease; }
   .incident-header { padding-top: 22px; }
   h1 { font-size: 28px; }
   .topbar { padding-inline: 16px; }
+  .route-heading { padding-top: 22px; font-size: 25px; }
 }

@@ -23,12 +23,12 @@ document.querySelectorAll('[data-open-tab]').forEach(button => button.addEventLi
 // These are intentionally local view changes; no navigation or data mutation
 // happens until the analyst presses an explicit response action.
 const productRoutes = {
-  overview: {view: 'workspace'},
-  incidents: {view: 'workspace'},
-  simulations: {view: 'twin'},
-  policies: {view: 'workspace', focus: 'policy'},
-  'audit-log': {view: 'audit'},
-  research: {view: 'workspace', focus: 'research'}
+  overview: {view: 'workspace', title: 'Overview'},
+  incidents: {view: 'workspace', title: 'Incident workspace'},
+  simulations: {view: 'twin', title: 'Digital twin simulations'},
+  policies: {view: 'workspace', focus: 'policy', title: 'Policy controls'},
+  'audit-log': {view: 'audit', title: 'Audit log'},
+  research: {view: 'workspace', focus: 'research', title: 'Research evidence'}
 };
 const sidebarLinks = [...document.querySelectorAll('.sidebar a[href^="#"]')];
 function renderRoute(route, {replace = false} = {}) {
@@ -38,12 +38,17 @@ function renderRoute(route, {replace = false} = {}) {
     return;
   }
   const config = productRoutes[clean] || productRoutes.incidents;
+  document.querySelector('main').dataset.route = clean;
+  const heading = document.getElementById('route-heading');
+  heading.textContent = config.title;
+  heading.hidden = clean === 'incidents' || clean === 'overview';
   const link = sidebarLinks.find(item => item.getAttribute('href') === `#${clean}`);
   if (link) setProductTab(link);
   openTab(config.view, {syncUrl: false});
   if (replace) history.replaceState({route: clean}, '', `#${clean}`);
   const target = config.focus && document.getElementById(config.focus);
   if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+  if (clean === 'research') document.getElementById('research').open = true;
 }
 
 sidebarLinks.forEach(link => link.addEventListener('click', event => {
