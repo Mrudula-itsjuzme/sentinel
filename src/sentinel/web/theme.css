@@ -144,6 +144,96 @@ td small { color: #7d898c; }
 .provider strong { color: #28343e; }
 .topbar > a { color: #335f87; font-size: 10px; }
 
+/* Product typography pass: fewer micro-labels, clearer reading order. */
+:root {
+  color-scheme: light;
+  --text: #1f2c35;
+  --muted: #68767b;
+  --line: #d8cec0;
+  --line-soft: #e8e0d4;
+  font-family: "Avenir Next", Avenir, "Segoe UI", Inter, system-ui, sans-serif;
+}
+
+body { font-size: 15px; line-height: 1.45; }
+.brand { font-size: 20px; font-weight: 700; letter-spacing: -0.025em; }
+.sidebar nav a { font-size: 13px; font-weight: 600; letter-spacing: -0.01em; }
+.sidebar nav svg { width: 17px; height: 17px; }
+.topbar { font-size: 13px; }
+.crumbs { gap: 10px; font-size: 13px; }
+.environment span, .environment small { font-size: 11px; }
+
+main { padding-bottom: 48px; }
+.incident-header { padding: 32px 4px 24px; }
+.incident-id { font-size: 10px; }
+.severity, .status { padding: 5px 9px; font-size: 10px; }
+h1 { font-size: clamp(28px, 3vw, 36px); line-height: 1.12; font-weight: 750; letter-spacing: -0.045em; margin: 10px 0 10px; }
+.asset-path { font-size: 13px; }
+.run-area label { font-size: 11px; }
+.run-area button { height: 42px; padding: 0 17px; font-size: 14px; border-radius: 7px; }
+.tabs { gap: 34px; }
+.tab { padding: 15px 3px; font-size: 14px; }
+.notice { min-height: 48px; margin: 16px 0; padding: 10px 14px; border-radius: 8px; }
+.notice p { font-size: 12px; }
+.workspace-grid, .main-column, .right-column { gap: 16px; }
+.surface, .detail-panel, .research { border-radius: 9px; box-shadow: 0 1px 2px rgb(50 42 30 / 4%); }
+.surface > header { min-height: 56px; padding: 0 16px; }
+.surface h2, .detail-panel h2 { font-size: 16px; font-weight: 700; }
+.surface > header small, .surface > header span, .detail-panel header > strong { font-size: 11px; }
+.text-button { font-size: 11px; }
+.summary-metrics { padding: 18px 0; }
+.summary-metrics > div { padding: 0 20px; }
+.summary-metrics strong { font-size: 23px; letter-spacing: -0.035em; }
+.summary-metrics span, .summary-metrics small { font-size: 11px; line-height: 1.35; }
+.diagnosis { padding: 12px 16px; font-size: 13px; }
+th { padding: 11px 14px; font-size: 10px; }
+td { padding: 13px 14px; font-size: 12px; }
+td small { font-size: 11px; }
+.empty { padding: 34px !important; font-size: 12px; }
+.decision { font-size: 10px; }
+.execution-body { padding: 18px; gap: 18px; }
+.execution-steps strong { font-size: 12px; }
+.execution-steps span { font-size: 11px; }
+.receipt, .outcomes article { padding: 13px 14px; }
+.receipt dt, .policy-rules dt { font-size: 11px; }
+.receipt dd, .policy-rules dd { font-size: 11px; }
+.outcomes span, .outcomes small { font-size: 11px; }
+.outcomes p strong { font-size: 23px; }
+.selected-action { padding: 16px; }
+.selected-action span { font-size: 11px; }
+.selected-action strong { font-size: 13px; }
+.selected-action small, .policy-boundary { font-size: 11px; }
+.policy-rules { padding: 10px 16px; }
+.policy-rules div { padding: 9px 0; }
+.recent-events ol { padding: 14px 16px; }
+.recent-events strong { font-size: 11px; }
+.recent-events p { font-size: 10px; }
+.detail-panel > header { padding: 19px 20px; }
+.detail-panel header p { font-size: 12px; }
+.evidence-list article { padding: 16px 20px; }
+.evidence-source { font-size: 11px; }
+.evidence-list strong { font-size: 12px; }
+.evidence-list p { font-size: 11px; }
+.evidence-list time { font-size: 10px; }
+.timeline-full { padding: 24px; }
+.timeline-full strong { font-size: 11px; }
+.timeline-full p { font-size: 11px; }
+.research summary { padding: 14px 16px; }
+.research > p { font-size: 11px; }
+
+@media (max-width: 1200px) and (min-width: 761px) {
+  .workspace-grid { grid-template-columns: 1fr; }
+  .right-column { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .incident-header { padding: 24px 0 18px; }
+  h1 { font-size: 27px; }
+  .tabs { gap: 22px; }
+  .tab { font-size: 13px; }
+  .surface > header { min-height: 52px; }
+  .summary-metrics strong { font-size: 21px; }
+}
+
 @media (max-width: 760px) {
   .topbar { grid-template-columns: 1fr auto; }
   .crumbs { justify-content: flex-start; }
