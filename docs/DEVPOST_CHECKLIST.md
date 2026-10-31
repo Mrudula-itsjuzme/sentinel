@@ -27,3 +27,13 @@
 - [ ] `.env` is ignored; `.env.example` contains no credential.
 - [ ] No real intervention adapter, private incident data, or invented benchmark is included.
 - [ ] Review the destination before any push or deployment.
+
+## Copy-ready submission answers
+
+### 2. Nemotron output quality rating
+
+**Not rated — live Nemotron inference was not run in the recorded demo because Nebius credentials were unavailable.** The demonstrated response uses Sentinel's explicitly labeled deterministic fallback. When enabled, Sentinel validates Nemotron output against a strict JSON schema, incident evidence IDs, supported actions and targets, and local safety checks before any proposal can reach policy evaluation. No live-model quality score is claimed without a completed Nebius run.
+
+### 3. Fine-tuning or prompt engineering
+
+**Prompt engineering; no fine-tuning.** Sentinel sends Nemotron a constrained, evidence-only incident context containing the observed signals, affected assets, and supported intervention/target pairs. The prompt explicitly excludes hidden simulator state and instructs the model to return strict JSON containing an incident-grounded hypothesis and candidate interventions. Temperature is set to zero and the response is independently validated with Pydantic before the deterministic digital twin and policy controller evaluate it. The model proposes; it cannot authorize or execute an action.
