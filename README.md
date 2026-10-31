@@ -1,4 +1,4 @@
-# Sentinel
+# Sentinel: Policy-Gated AI Incident Response
 
 Sentinel is a policy-gated incident-response agent that uses AI for evidence-grounded proposals while keeping authorization, simulation, execution, and verification deterministic and auditable.
 
